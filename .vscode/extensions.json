@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "mgmcdermott.vscode-language-babel",
+    "mikestead.dotenv",
+    "orta.vscode-jest",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

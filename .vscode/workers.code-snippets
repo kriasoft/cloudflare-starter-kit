@@ -1,0 +1,25 @@
+{
+  "React": {
+    "scope": "typescript",
+    "prefix": "worker",
+    "body": [
+      "async function handleRequest(request: Request): Promise<Response> {",
+      "  const url = new URL(request.url);",
+      "  $0",
+      "  return fetch(\"https://welcome.developers.workers.dev\");",
+      "}",
+      "",
+      "function handleError(err: Error): Response {",
+      "  return new Response(JSON.stringify({ error: err.message }), { status: 500 });",
+      "}",
+      "",
+      "addEventListener(\"fetch\", function (event) {",
+      "  event.respondWith(handleRequest(event.request).catch(handleError));",
+      "});",
+      "",
+      "export {};",
+      ""
+    ],
+    "description": "Cloudflare Worker"
+  }
+}
