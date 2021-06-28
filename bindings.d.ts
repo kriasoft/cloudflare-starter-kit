@@ -8,3 +8,5 @@
  */
 
 declare const EXAMPLE: string;
+
+declare module "whatwg-fetch";
