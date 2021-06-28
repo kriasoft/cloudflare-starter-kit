@@ -15,7 +15,7 @@ import globby from "globby";
 const config = {
   output: {
     dir: ".build",
-    format: "cjs",
+    format: "module",
   },
   plugins: [
     resolve({
