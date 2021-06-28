@@ -18,7 +18,9 @@ const config = {
     format: "cjs",
   },
   plugins: [
-    resolve(),
+    resolve({
+      extensions: [".ts", ".tsx", ".mjs", ".js", ".json", ".node"],
+    }),
     babel({
       extensions: [".js", ".mjs", ".ts", ".tsx"],
       babelHelpers: "bundled",
