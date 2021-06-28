@@ -33,6 +33,7 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Tech Stack
 
+[Cloudflare Workers](https://workers.cloudflare.com/),
 [TypeScript](https://www.typescriptlang.org/), [Babel](https://babeljs.io/),
 [ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
 [Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/) v2 with PnP,
@@ -49,7 +50,8 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
   `git clone -o seed https://github.com/kriasoft/cloudflare-starter-kit.git`
 - Install project dependencies — `yarn install`
 - Optionally, configure Husky — `yarn setup`
-- Edit Cloudflare Workers script inside of the `workers` folder and run `yarn build`
+- Add or edit Cloudflare Workers inside of the `workers` folder
+- Build and deploy them by running `yarn build`, `yarn deploy`.
 
 **IMPORTANT**: Ensure that VSCode is using the workspace versions of TypeScript and ESLint.
 

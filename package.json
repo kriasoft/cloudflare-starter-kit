@@ -30,6 +30,7 @@
     "@types/babel__core": "^7.1.14",
     "@types/babel__preset-env": "^7.9.1",
     "@types/eslint": "^7.2.13",
+    "@types/jest": "^26.0.23",
     "@types/minimist": "^1.2.1",
     "@types/prettier": "^2.3.0",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
