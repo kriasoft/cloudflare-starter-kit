@@ -5,6 +5,7 @@ import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import del from "del";
 import globby from "globby";
+import stripExports from "rollup-plugin-strip-exports";
 
 /**
  * Rollup configuration.
@@ -15,16 +16,20 @@ import globby from "globby";
 const config = {
   output: {
     dir: ".build",
-    format: "module",
+    format: "es",
+    minifyInternalExports: true,
+    sourcemap: "inline",
   },
   plugins: [
     resolve({
       extensions: [".ts", ".tsx", ".mjs", ".js", ".json", ".node"],
+      browser: true,
     }),
     babel({
       extensions: [".js", ".mjs", ".ts", ".tsx"],
       babelHelpers: "bundled",
     }),
+    stripExports(),
   ],
 };
 

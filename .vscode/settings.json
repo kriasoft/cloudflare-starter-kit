@@ -26,6 +26,7 @@
     "**/.prettierignore": true,
     "**/.yarn": true,
     "**/.yarnrc.yml": true,
+    "**/LICENSE": true,
     "**/yarn.lock": true
   },
   "search.exclude": {
