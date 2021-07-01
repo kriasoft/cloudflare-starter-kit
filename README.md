@@ -26,7 +26,9 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`.github`](.github) — GitHub configuration including CI/CD workflows<br>
 `├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>
 `├──`[`core`](./core) — core modules and utility functions<br>
+`├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
 `├──`[`workers`](./workers) — Cloudflare Worker scripts<br>
+`├──`[`bindings.d.ts`](./bindings.d.ts) — KV bindings etc.<br>
 `├──`[`package.json`](./project.json) — npm dependencies and Yarn scripts<br>
 `├──`[`rollup.config.js`](./rollup.config.js) — code bundling configuration for Rollup<br>
 `└──`[`tsconfig.json`](./tsconfig.json) — TypeScript configuration<br>
