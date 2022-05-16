@@ -6,7 +6,8 @@
 <a href="https://github.com/kriasoft/cloudflare-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/cloudflare-starter-kit.svg?style=social&label=Star&maxAge=3600" height="20"></a>
 <a href="https://twitter.com/koistya"><img src="https://img.shields.io/twitter/follow/koistya.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
 
-Project template for scaffolding [Cloudflare Workers](https://workers.cloudflare.com/) projects.
+Project template for [scaffolding](https://github.com/kriasoft/cloudflare-starter-kit/generate)
+[Cloudflare Workers](https://workers.cloudflare.com/) projects.
 
 ## Features
 
@@ -51,16 +52,16 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Getting Started
 
-Clone the repository and install/update project dependencies:
+Just [clone](https://github.com/kriasoft/cloudflare-starter-kit/generate) the
+repository, install dependencies, open it in VSCode and start hacking:
 
 ```bash
-$ git clone -o seed -b main --single-branch \
-      https://github.com/kriasoft/cloudflare-starter-kit.git example
-$ cd ./example
+$ git clone https://github.com/kriasoft/cloudflare-starter-kit.git
+$ cd ./cloudflare-starter-kit
 $ yarn install
 ```
 
-Then open the it in VSCode, find the worker scripts inside of the [`./src`](./src) folder.
+Find the worker scripts inside of the [`./src`](./src) folder.
 
 **IMPORTANT**: Ensure that VSCode is using the workspace versions of TypeScript and ESLint.
 
