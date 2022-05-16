@@ -1,4 +1,4 @@
-/* SPDX-FileCopyrightText: 2020-present Kriasoft <hello@kriasoft.com> */
+/* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
 /**

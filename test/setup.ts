@@ -1,4 +1,4 @@
-/* SPDX-FileCopyrightText: 2020-present Kriasoft <hello@kriasoft.com> */
+/* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
 import { jest } from "@jest/globals";
@@ -6,6 +6,15 @@ import { Headers, Request, Response } from "whatwg-fetch";
 
 /* eslint-disable-next-line @typescript-eslint/no-empty-function */
 globalThis.addEventListener = jest.fn(() => {});
-globalThis.Headers = Headers;
-globalThis.Request = Request;
-globalThis.Response = Response;
+
+Object.defineProperty(globalThis, "Headers", {
+  value: Headers,
+});
+
+Object.defineProperty(globalThis, "Request", {
+  value: Request,
+});
+
+Object.defineProperty(globalThis, "Response", {
+  value: Response,
+});

@@ -1,13 +1,13 @@
-/* SPDX-FileCopyrightText: 2020-present Kriasoft <hello@kriasoft.com> */
+/* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-async function handleRequest(request: Request): Promise<Response> {
-  const url = new URL(request.url);
+async function handleRequest(req: Request): Promise<Response> {
+  const url = new URL(req.url);
 
   url.protocol = "https:";
   url.hostname = "welcome.developers.workers.dev";
 
-  return fetch(url.toString(), request);
+  return fetch(url.toString(), req);
 }
 
 function handleError(err: Error): Response {

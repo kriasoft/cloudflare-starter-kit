@@ -5,6 +5,7 @@
     "eamodio.gitlens",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
     "mgmcdermott.vscode-language-babel",
     "mikestead.dotenv",
     "orta.vscode-jest",

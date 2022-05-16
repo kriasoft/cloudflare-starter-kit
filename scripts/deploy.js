@@ -1,89 +1,59 @@
-/* SPDX-FileCopyrightText: 2014-present Kriasoft <hello@kriasoft.com> */
+/* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-/**
- * Deploys bundle worker script(s) to Cloudflare. Usage:
- *
- *   $ yarn deploy <worker> [--env #0]
- *
- * @see https://developers.cloudflare.com/workers/
- * @see https://api.cloudflare.com/#worker-script-upload-worker
- */
+import { spawn } from "cross-spawn";
+import envars from "envars";
+import { globbySync } from "globby";
+import { readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { argv } from "zx";
 
-const fs = require("fs");
-const got = require("got");
-const path = require("path");
-const globby = require("globby");
-const minimist = require("minimist");
-const FormData = require("form-data");
-const dotenv = require("dotenv");
+// Load environment variables from the `/env/.{envName}.env` file
+envars.config({ env: argv.env ?? "test" });
+process.env.CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+const cwd = join(__dirname, "../dist");
 
-const args = minimist(process.argv.slice(2));
-const buildDir = path.resolve(__dirname, "../.build");
+for (const name of globbySync("*", { cwd, onlyDirectories: true })) {
+  const pkgFile = join(__dirname, "../package.json");
+  const pkg = await readFile(pkgFile, "utf-8");
+  const configFile = join(cwd, name, "wrangler.toml");
+  const config = await readFile(configFile, "utf-8");
 
-// The name of the worker script (e.g. "proxy", "proxy-test", etc.)
-const envName = args.env || "test";
+  try {
+    // Update the package.json->main field required by Wrangler CLI
+    await writeFile(
+      pkgFile,
+      pkg.replace(/^(\s"main"): ".*",$/, `$1: "./dist/${name}/index.js`),
+      "utf-8"
+    );
 
-// Load environment variables from the .env file
-dotenv.config({ path: `.env.${envName}` });
-dotenv.config({ path: `.env` });
+    // Inject environment variables into `dist/{name}/wrangler.toml`
+    await writeFile(
+      configFile,
+      config.replace(
+        /(\$[[A-Z0-9_]+)/gm,
+        (match, p1) => process.env[p1.substring(1)] ?? ""
+      ),
+      "utf-8"
+    );
 
-const env = process.env;
-
-// Configure an HTTP client for accessing Cloudflare REST API
-const cf = got.extend({
-  prefixUrl: `https://api.cloudflare.com/client/v4/accounts/${env.CLOUDFLARE_ACCOUNT_ID}/`,
-  headers: { authorization: `Bearer ${env.CLOUDFLARE_API_TOKEN}` },
-  responseType: "json",
-  resolveBodyOnly: true,
-  hooks: {
-    afterResponse: [
-      function (res) {
-        if (!res.body?.success) throw new Error(res.body.errors[0].message);
-        res.body?.messages.forEach((x) => console.log(x));
-        res.body = res.body.result || res.body;
-        return res;
-      },
-    ],
-  },
-});
-
-async function deploy() {
-  if (args._.length === 0) {
-    throw new Error("Need to specify script(s) to deploy.");
+    // Deploy the script using Cloudflare Wrangler CLI
+    await new Promise((resolve, reject) => {
+      spawn(
+        "yarn",
+        [
+          "wrangler",
+          "publish",
+          "--verbose",
+          "--config",
+          `./dist/${name}/wrangler.toml`,
+        ],
+        { stdio: "inherit" }
+      ).on("close", (code) => (code === 0 ? resolve() : reject()));
+    });
+  } finally {
+    // Restore the original files: package.json, wrangler.toml
+    await writeFile(pkgFile, pkg, "utf-8");
+    await writeFile(configFile, config, "utf-8");
   }
-
-  const pattern = args._.map((x) => `${x}.js`);
-  const files = await globby(pattern, { cwd: buildDir });
-
-  for (const file of files) {
-    const worker =
-      file.substring(0, file.length - 3) +
-      (envName === "prod" ? "" : `-${envName}`);
-    console.log(`Uploading Cloudflare Worker script: ${worker}`);
-
-    const form = new FormData();
-    const script = fs.readFileSync(path.resolve(buildDir, file), {
-      encoding: "utf-8",
-    });
-    const bindings = [];
-    const metadata = { body_part: "script", bindings };
-    form.append("script", script, { contentType: "application/javascript" });
-    form.append("metadata", JSON.stringify(metadata), {
-      contentType: "application/json",
-    });
-
-    await cf.put({
-      url: `workers/scripts/${worker}`,
-      headers: form.getHeaders(),
-      body: form,
-    });
-  }
-
-  console.log("Done!");
 }
-
-deploy().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});

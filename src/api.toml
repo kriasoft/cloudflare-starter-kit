@@ -1,0 +1,18 @@
+# Cloudflare Workers configuration
+# https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "$APP_NAME-api"
+type = "javascript"
+compatibility_date = "2022-02-19"
+build = { command = "", upload = { format = "service-worker" } }
+
+account_id = "$CLOUDFLARE_ACCOUNT_ID"
+zone_id = "$CLOUDFLARE_ZONE_ID"
+
+routes = [
+  "$APP_HOSTNAME/api/*",
+  "$APP_HOSTNAME/auth/*",
+]
+
+[vars]
+APP_ENV = "$APP_ENV"

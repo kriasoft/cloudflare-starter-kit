@@ -13,6 +13,7 @@ Project template for scaffolding [Cloudflare Workers](https://workers.cloudflare
 - Supports multiple worker scripts within the same project
 - Source code bundling with Babel and Rollup
 - Pre-configured with TypeScript, ESLint, Jest, and Prettier
+- Pre-configured with `local`, `test` (staging/QA), and `prod` (production) environments
 - Pre-commit Git hook(s) using Husky; CI/CD workflow (GitHub Actions)
 - Code snippets and other VSCode settings
 
@@ -26,11 +27,13 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`.github`](.github) — GitHub configuration including CI/CD workflows<br>
 `├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>
 `├──`[`core`](./core) — core modules and utility functions<br>
+`├──`[`dist`](./dist) — compiled output for deployment<br>
+`├──`[`env`](./env) — environment variables for the local (dev), test (QA), and production<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
-`├──`[`workers`](./workers) — Cloudflare Worker scripts<br>
+`├──`[`src`](./src) — Cloudflare Worker scripts<br>
 `├──`[`bindings.d.ts`](./bindings.d.ts) — KV bindings etc.<br>
 `├──`[`package.json`](./project.json) — npm dependencies and Yarn scripts<br>
-`├──`[`rollup.config.js`](./rollup.config.js) — code bundling configuration for Rollup<br>
+`├──`[`rollup.config.mjs`](./rollup.config.mjs) — code bundling configuration for Rollup<br>
 `└──`[`tsconfig.json`](./tsconfig.json) — TypeScript configuration<br>
 
 ## Tech Stack
@@ -38,22 +41,26 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 [Cloudflare Workers](https://workers.cloudflare.com/),
 [TypeScript](https://www.typescriptlang.org/), [Babel](https://babeljs.io/),
 [ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
-[Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/) v2 with PnP,
+[Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/) with PnP,
 [Rollup](https://rollupjs.org/).
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/) v14 or newer, [Yarn](https://yarnpkg.com/) package manager
+- [Node.js](https://nodejs.org/) v16 or newer, [Yarn](https://yarnpkg.com/) package manager
 - [VS Code](https://code.visualstudio.com/) editor with [recommended extensions](.vscode/extensions.json)
 
 ## Getting Started
 
-- Clone the repo<br />
-  `git clone -o seed https://github.com/kriasoft/cloudflare-starter-kit.git`
-- Install project dependencies — `yarn install`
-- Optionally, configure Husky — `yarn setup`
-- Add or edit Cloudflare Workers inside of the `workers` folder
-- Build and deploy them by running `yarn build`, `yarn deploy`.
+Clone the repository and install/update project dependencies:
+
+```bash
+$ git clone -o seed -b main --single-branch \
+      https://github.com/kriasoft/cloudflare-starter-kit.git example
+$ cd ./example
+$ yarn install
+```
+
+Then open the it in VSCode, find the worker scripts inside of the [`./src`](./src) folder.
 
 **IMPORTANT**: Ensure that VSCode is using the workspace versions of TypeScript and ESLint.
 
@@ -61,39 +68,33 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Scripts
 
-- `yarn build` — Compiles and bundles Cloudflare Workers into the `.build` folder
-- `yarn lint` — Validate code using ESLint
-- `yarn tsc` — Validate code using TypeScript compiler
-- `yarn test` — Run unit tests with Jest, Supertest
-- `yarn deploy` — Deploys the app to Cloudflare
+- `yarn lint` — Validate the code using ESLint
+- `yarn tsc` — Validate the code using TypeScript compiler
+- `yarn test` — Run unit tests with Jest and Supertest
+- `yarn build` — Compiles and bundles worker scripts into the `dist` folder
+- `yarn deploy` — Deploys the worker scripts to Cloudflare
 
 ## How to Deploy
 
-Ensure that Cloudflare account credentials are present in the `.env` file:
-
-```bash
-# Cloudflare
-# https://dash.cloudflare.com/
-# https://developers.cloudflare.com/api/tokens/create
-CLOUDFLARE_ACCOUNT_ID=
-CLOUDFLARE_ZONE_ID=
-CLOUDFLARE_API_TOKEN=
-```
-
-Compile and deploy the app by running:
+Ensure that Cloudflare account credentials are up-to-date (see [`./env`](./env)
+folder). Then compile and deploy the worker scripts by running:
 
 ```
 $ yarn build
 $ yarn deploy [--env #0]
 ```
 
-Where `--env` argument is the target environment, e.g. `yarn deploy --env=prod`.
+Where `--env` can be one of the supported environment names:
+
+- **`local`**: https://dev.example.com (local development and unit testing)
+- **`test`**: https://test.example.com (staging/QA)
+- **`prod`**: https://example.com (production)
 
 ## How to Update
 
-- `yarn set version latest` — Bump Yarn to the latest version
+- `yarn set version stable` — Bump Yarn to the latest version
 - `yarn upgrade-interactive` — Update Node.js modules (dependencies)
-- `yarn pnpify --sdk vscode` — Update TypeScript, ESLint, and Prettier settings in VSCode
+- `yarn dlx @yarnpkg/sdks vscode` — Update TypeScript, ESLint, and Prettier settings in VSCode
 
 ## Backers 💰
 
@@ -101,7 +102,7 @@ Where `--env` argument is the target environment, e.g. `yarn deploy --env=prod`.
 
 ## Related Projects
 
-- [React Starter Kit](https://github.com/kriasoft/react-starter-kit) — front-end template for React, Relay stack
+- [React Starter Kit](https://github.com/kriasoft/react-starter-kit) — front-end template for React and Relay using Jamstack architecture
 - [Node.js API Starter Kit](https://github.com/kriasoft/node-starter-kit) — project template, pre-configured with Node.js, GraphQL, and PostgreSQL
 - [GraphQL API and Relay Starter Kit](https://github.com/kriasoft/graphql-starter) — monorepo template, pre-configured with GraphQL API, React, and Relay
 
