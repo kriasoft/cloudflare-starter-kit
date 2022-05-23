@@ -1,7 +1,10 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
+import { serveSinglePageApp } from "@cloudflare/kv-asset-handler";
+
 async function handleRequest(req: Request): Promise<Response> {
+  console.log(serveSinglePageApp);
   const url = new URL(req.url);
 
   url.protocol = "https:";

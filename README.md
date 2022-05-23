@@ -31,7 +31,7 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`dist`](./dist) — compiled output for deployment<br>
 `├──`[`env`](./env) — environment variables for the local (dev), test (QA), and production<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
-`├──`[`src`](./src) — Cloudflare Worker scripts<br>
+`├──`[`workers`](./workers) — Cloudflare Worker scripts<br>
 `├──`[`bindings.d.ts`](./bindings.d.ts) — KV bindings etc.<br>
 `├──`[`package.json`](./project.json) — npm dependencies and Yarn scripts<br>
 `├──`[`rollup.config.mjs`](./rollup.config.mjs) — code bundling configuration for Rollup<br>
@@ -90,6 +90,8 @@ Where `--env` can be one of the supported environment names:
 - **`local`**: https://dev.example.com (local development and unit testing)
 - **`test`**: https://test.example.com (staging/QA)
 - **`prod`**: https://example.com (production)
+
+<p align="center"><img src="https://files.tarkus.me/cloudflare-workers-deploy.svg" /></p>
 
 ## How to Update
 
