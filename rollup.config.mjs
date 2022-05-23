@@ -8,11 +8,12 @@ import chalk from "chalk";
 import del from "del";
 import { globbySync } from "globby";
 import { copyFile } from "node:fs";
-import { basename } from "node:path";
+import { basename, dirname } from "node:path";
 import prettyBytes from "pretty-bytes";
 
-export default globbySync(["*.toml"], { cwd: "./workers" })
-  .map((file) => file.replace(/\.toml$/, ""))
+export default globbySync(["*/wrangler.toml"])
+  .map((file) => dirname(file))
+  .filter((name) => name === process.env.TARGET || !process.env.TARGET)
   .map(
     /**
      * Rollup configuration
@@ -21,8 +22,9 @@ export default globbySync(["*.toml"], { cwd: "./workers" })
      * @return {import("rollup").RollupOptions}
      */
     (name) => ({
-      input: `./workers/${name}.ts`,
+      input: `./${name}/index.ts`,
       output: {
+        name,
         file: `./dist/${name}/index.js`,
         format: "es",
         minifyInternalExports: true,
@@ -45,16 +47,18 @@ export default globbySync(["*.toml"], { cwd: "./workers" })
           async writeBundle() {
             await Promise.all([
               copyFile(
-                `./workers/${name}.toml`,
+                `./${name}/wrangler.toml`,
                 `./dist/${name}/wrangler.toml`
               ),
             ]);
           },
           generateBundle(options, bundle) {
-            const file = basename(options.file);
-            const size = bundle[file].code.length;
-            const prettySize = chalk.green(prettyBytes(size));
-            console.log(`${chalk.cyan("file size:")} ${prettySize}`);
+            if (!process.argv.includes("--silent")) {
+              const file = basename(options.file);
+              const size = bundle[file].code.length;
+              const prettySize = chalk.green(prettyBytes(size));
+              console.log(`${chalk.cyan("file size:")} ${prettySize}`);
+            }
           },
         },
       ],

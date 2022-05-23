@@ -23,7 +23,7 @@ for (const name of globbySync("*", { cwd, onlyDirectories: true })) {
     // Update the package.json->main field required by Wrangler CLI
     await writeFile(
       pkgFile,
-      pkg.replace(/^(\s"main"): ".*",$/, `$1: "./dist/${name}/index.js`),
+      pkg.replace(/^(\s*"main":\s*)".*?"/m, `$1"./dist/${name}/index.js"`),
       "utf-8"
     );
 
