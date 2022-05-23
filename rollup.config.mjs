@@ -2,17 +2,16 @@
 /* SPDX-License-Identifier: MIT */
 
 import { babel } from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import chalk from "chalk";
-import { sync as del } from "del";
+import del from "del";
 import { globbySync } from "globby";
 import { copyFile } from "node:fs";
 import { basename } from "node:path";
 import prettyBytes from "pretty-bytes";
 
-del("dist/**");
-
-export default globbySync(["*.toml"], { cwd: "./src" })
+export default globbySync(["*.toml"], { cwd: "./workers" })
   .map((file) => file.replace(/\.toml$/, ""))
   .map(
     /**
@@ -22,7 +21,7 @@ export default globbySync(["*.toml"], { cwd: "./src" })
      * @return {import("rollup").RollupOptions}
      */
     (name) => ({
-      input: `./src/${name}.ts`,
+      input: `./workers/${name}.ts`,
       output: {
         file: `./dist/${name}/index.js`,
         format: "es",
@@ -33,15 +32,22 @@ export default globbySync(["*.toml"], { cwd: "./src" })
           extensions: [".ts", ".tsx", ".mjs", ".js", ".json", ".node"],
           browser: true,
         }),
+        commonjs(),
         babel({
           extensions: [".js", ".mjs", ".ts", ".tsx"],
           babelHelpers: "bundled",
         }),
         {
-          name: "package.json",
+          name: "custom",
+          async buildStart() {
+            await del(`dist/${name}/**`);
+          },
           async writeBundle() {
             await Promise.all([
-              copyFile(`./src/${name}.toml`, `./dist/${name}/wrangler.toml`),
+              copyFile(
+                `./workers/${name}.toml`,
+                `./dist/${name}/wrangler.toml`
+              ),
             ]);
           },
           generateBundle(options, bundle) {

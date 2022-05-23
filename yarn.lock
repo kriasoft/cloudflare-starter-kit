@@ -1881,6 +1881,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-commonjs@npm:^22.0.0":
+  version: 22.0.0
+  resolution: "@rollup/plugin-commonjs@npm:22.0.0"
+  dependencies:
+    "@rollup/pluginutils": "npm:^3.1.0"
+    commondir: "npm:^1.0.1"
+    estree-walker: "npm:^2.0.1"
+    glob: "npm:^7.1.6"
+    is-reference: "npm:^1.2.1"
+    magic-string: "npm:^0.25.7"
+    resolve: "npm:^1.17.0"
+  peerDependencies:
+    rollup: ^2.68.0
+  checksum: e4fd4ddb5006812b4e96227d3a71c10c3c8722fa3f599a8303d38b8b27ac3c6e2e91ac45cb17e30c52d26cde2a444ae08c93db0c92f580393605f679df2ee6e2
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-node-resolve@npm:^13.3.0":
   version: 13.3.0
   resolution: "@rollup/plugin-node-resolve@npm:13.3.0"
@@ -2451,6 +2468,57 @@ __metadata:
   checksum: b9266228a3e1406086ece57c20f9cbfc9755375218697c79a71fba9245ad23a672687314422e97753fbb3bccd245d7c76974d7c15ba513386b499de6ba002300
   languageName: node
   linkType: hard
+
+"app@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "app@workspace:."
+  dependencies:
+    "@babel/cli": "npm:^7.17.10"
+    "@babel/core": "npm:^7.18.0"
+    "@babel/plugin-proposal-class-properties": "npm:^7.17.12"
+    "@babel/plugin-proposal-object-rest-spread": "npm:^7.18.0"
+    "@babel/preset-env": "npm:^7.18.0"
+    "@babel/preset-typescript": "npm:^7.17.12"
+    "@babel/register": "npm:^7.17.7"
+    "@cloudflare/workers-types": "npm:^3.11.0"
+    "@cloudflare/wrangler": "npm:^1.19.12"
+    "@emotion/babel-plugin": "npm:^11.9.2"
+    "@emotion/eslint-plugin": "npm:^11.7.0"
+    "@jest/globals": "npm:^28.1.0"
+    "@rollup/plugin-babel": "npm:^5.3.1"
+    "@rollup/plugin-commonjs": "npm:^22.0.0"
+    "@rollup/plugin-node-resolve": "npm:^13.3.0"
+    "@types/babel__core": "npm:^7.1.19"
+    "@types/babel__preset-env": "npm:^7.9.2"
+    "@types/eslint": "npm:^8.4.2"
+    "@types/jest": "npm:^27.5.1"
+    "@types/minimist": "npm:^1.2.2"
+    "@types/node": "npm:^17.0.35"
+    "@types/prettier": "npm:^2.6.1"
+    "@typescript-eslint/eslint-plugin": "npm:^5.25.0"
+    "@typescript-eslint/parser": "npm:^5.25.0"
+    babel-jest: "npm:^28.1.0"
+    babel-loader: "npm:^8.2.5"
+    chalk: "npm:^5.0.1"
+    cross-spawn: "npm:^7.0.3"
+    del: "npm:^6.1.0"
+    envars: "npm:^0.4.0"
+    eslint: "npm:^8.16.0"
+    eslint-config-prettier: "npm:^8.5.0"
+    form-data: "npm:^4.0.0"
+    globby: "npm:^13.1.1"
+    got: "npm:^12.0.4"
+    husky: "npm:^8.0.1"
+    jest: "npm:^28.1.0"
+    minimist: "npm:^1.2.6"
+    prettier: "npm:^2.6.2"
+    pretty-bytes: "npm:^6.0.0"
+    rollup: "npm:^2.74.1"
+    typescript: "npm:^4.7.1-rc"
+    whatwg-fetch: "npm:^3.6.2"
+    zx: "npm:^6.1.0"
+  languageName: unknown
+  linkType: soft
 
 "aproba@npm:^1.0.3 || ^2.0.0":
   version: 2.0.0
@@ -3549,6 +3617,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"estree-walker@npm:^2.0.1":
+  version: 2.0.2
+  resolution: "estree-walker@npm:2.0.2"
+  checksum: 6fd7656e20b3c8f1fa74cd3d922e09d2cc9815ba5ea2d4cc0d5f16870b00e4c40d9aaae5efeb26299ea684a89b8e64868f42ecdddd45e8d18283f47098c9943a
+  languageName: node
+  linkType: hard
+
 "esutils@npm:^2.0.2":
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
@@ -3946,7 +4021,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.0, glob@npm:^7.1.3, glob@npm:^7.1.4":
+"glob@npm:^7.0.0, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -4378,6 +4453,15 @@ __metadata:
   dependencies:
     isobject: "npm:^3.0.1"
   checksum: fd67792beb6982bbf5d0b0e8e0f743947d0ca6a1068e20b4826d47e7d7b674fdd4860e4c685880081ea3cedb03aeddf55037500ca7d9ee09335908118b46782f
+  languageName: node
+  linkType: hard
+
+"is-reference@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "is-reference@npm:1.2.1"
+  dependencies:
+    "@types/estree": "npm:*"
+  checksum: f2912059e3f50528f6720839e0432209de0e078c69158dac60fdc3fe360151741218dab85b302f64c9593be3ebf5989f02a7927b59f65a4d624a3214940fb0be
   languageName: node
   linkType: hard
 
@@ -5140,6 +5224,15 @@ __metadata:
   version: 7.10.1
   resolution: "lru-cache@npm:7.10.1"
   checksum: 7ed793df5cef1bccc69df07d22549c4eae0f9cdcd90aefb6020b5b5886f9d97d957288cc3aabb5bcb80b92f5a68ecc3f4ce9296ba31708e6e0d1b80b2e0f83b9
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.25.7":
+  version: 0.25.9
+  resolution: "magic-string@npm:0.25.9"
+  dependencies:
+    sourcemap-codec: "npm:^1.4.8"
+  checksum: 8a2cb8470617fbe2fa9b924b4b1de9322686f035f8b506daa9bbe0dc5d1ba182da9e3b53fa9d3a932ab1b003b05ee81a49f9b9ea169f3c790a979f32222af5c2
   languageName: node
   linkType: hard
 
@@ -6101,7 +6194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.10.0, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0":
+"resolve@npm:^1.10.0, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.19.0, resolve@npm:^1.20.0":
   version: 1.22.0
   resolution: "resolve@npm:1.22.0"
   dependencies:
@@ -6114,7 +6207,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.17.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>":
   version: 1.22.0
   resolution: "resolve@patch:resolve@npm%3A1.22.0#optional!builtin<compat/resolve>::version=1.22.0&hash=07638b"
   dependencies:
@@ -6380,6 +6473,13 @@ __metadata:
   version: 0.6.1
   resolution: "source-map@npm:0.6.1"
   checksum: cba9f44c3a4a0485f44a7760ebe427eecdd3b58011ae0459c05506b54f898835b2302073d6afa563a19b60ee9e54c82e33bc4a032e28bebacdfc635f1d0bf7e0
+  languageName: node
+  linkType: hard
+
+"sourcemap-codec@npm:^1.4.8":
+  version: 1.4.8
+  resolution: "sourcemap-codec@npm:1.4.8"
+  checksum: 16bd825c262a260854606ce89d836312a36a9b7d70fba54f17c2d9c395ad99a61b4f6b333f3f830ce09a37c234668ff6a7ece172b9964a2d78f9d433bf0e1e93
   languageName: node
   linkType: hard
 
@@ -6905,54 +7005,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workers@workspace:.":
+"workers@workspace:workers":
   version: 0.0.0-use.local
-  resolution: "workers@workspace:."
+  resolution: "workers@workspace:workers"
   dependencies:
-    "@babel/cli": "npm:^7.17.10"
-    "@babel/core": "npm:^7.18.0"
-    "@babel/plugin-proposal-class-properties": "npm:^7.17.12"
-    "@babel/plugin-proposal-object-rest-spread": "npm:^7.18.0"
-    "@babel/preset-env": "npm:^7.18.0"
-    "@babel/preset-typescript": "npm:^7.17.12"
-    "@babel/register": "npm:^7.17.7"
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
-    "@cloudflare/workers-types": "npm:^3.11.0"
-    "@cloudflare/wrangler": "npm:^1.19.12"
-    "@emotion/babel-plugin": "npm:^11.9.2"
-    "@emotion/eslint-plugin": "npm:^11.7.0"
-    "@jest/globals": "npm:^28.1.0"
-    "@rollup/plugin-babel": "npm:^5.3.1"
-    "@rollup/plugin-node-resolve": "npm:^13.3.0"
-    "@types/babel__core": "npm:^7.1.19"
-    "@types/babel__preset-env": "npm:^7.9.2"
-    "@types/eslint": "npm:^8.4.2"
-    "@types/jest": "npm:^27.5.1"
-    "@types/minimist": "npm:^1.2.2"
-    "@types/node": "npm:^17.0.35"
-    "@types/prettier": "npm:^2.6.1"
-    "@typescript-eslint/eslint-plugin": "npm:^5.25.0"
-    "@typescript-eslint/parser": "npm:^5.25.0"
-    babel-jest: "npm:^28.1.0"
-    babel-loader: "npm:^8.2.5"
-    chalk: "npm:^5.0.1"
-    cross-spawn: "npm:^7.0.3"
-    del: "npm:^6.1.0"
-    envars: "npm:^0.4.0"
-    eslint: "npm:^8.16.0"
-    eslint-config-prettier: "npm:^8.5.0"
-    form-data: "npm:^4.0.0"
-    globby: "npm:^13.1.1"
-    got: "npm:^12.0.4"
-    husky: "npm:^8.0.1"
-    jest: "npm:^28.1.0"
-    minimist: "npm:^1.2.6"
-    prettier: "npm:^2.6.2"
-    pretty-bytes: "npm:^6.0.0"
-    rollup: "npm:^2.74.1"
-    typescript: "npm:^4.7.1-rc"
-    whatwg-fetch: "npm:^3.6.2"
-    zx: "npm:^6.1.0"
   languageName: unknown
   linkType: soft
 
