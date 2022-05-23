@@ -1,7 +1,7 @@
 # Cloudflare Workers configuration
 # https://developers.cloudflare.com/workers/wrangler/configuration/
 
-name = "$APP_NAME"
+name = "$APP_NAME-site"
 type = "javascript"
 compatibility_date = "2022-02-19"
 build = { command = "", upload = { format = "service-worker" } }

@@ -2,3 +2,4 @@
 /* SPDX-License-Identifier: MIT */
 
 export { HttpError } from "./errors.js";
+export { transform } from "./transform.js";
