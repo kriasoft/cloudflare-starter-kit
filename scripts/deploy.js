@@ -14,19 +14,10 @@ process.env.CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 const cwd = join(__dirname, "../dist");
 
 for (const name of globbySync("*", { cwd, onlyDirectories: true })) {
-  const pkgFile = join(__dirname, "../package.json");
-  const pkg = await readFile(pkgFile, "utf-8");
   const configFile = join(cwd, name, "wrangler.toml");
   const config = await readFile(configFile, "utf-8");
 
   try {
-    // Update the package.json->main field required by Wrangler CLI
-    await writeFile(
-      pkgFile,
-      pkg.replace(/^(\s*"main":\s*)".*?"/m, `$1"./dist/${name}/index.js"`),
-      "utf-8"
-    );
-
     // Inject environment variables into `dist/{name}/wrangler.toml`
     await writeFile(
       configFile,
@@ -52,8 +43,6 @@ for (const name of globbySync("*", { cwd, onlyDirectories: true })) {
       ).on("close", (code) => (code === 0 ? resolve() : reject()));
     });
   } finally {
-    // Restore the original files: package.json, wrangler.toml
-    await writeFile(pkgFile, pkg, "utf-8");
     await writeFile(configFile, config, "utf-8");
   }
 }
