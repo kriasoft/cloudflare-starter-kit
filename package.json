@@ -2,13 +2,12 @@
   "name": "app",
   "version": "0.0.0",
   "private": true,
-  "main": "./dist/site/index.js",
   "type": "module",
   "packageManager": "yarn@4.0.0-rc.6",
   "workspaces": [
+    "api",
     "core",
-    "site",
-    "workers"
+    "site"
   ],
   "scripts": {
     "postinstall": "husky install && node ./scripts/postinstall.js",

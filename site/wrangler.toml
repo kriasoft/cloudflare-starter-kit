@@ -4,7 +4,6 @@
 name = "$APP_NAME-site"
 type = "javascript"
 compatibility_date = "2022-02-19"
-build = { command = "", upload = { format = "service-worker" } }
 
 account_id = "$CLOUDFLARE_ACCOUNT_ID"
 zone_id = "$CLOUDFLARE_ZONE_ID"
@@ -13,3 +12,15 @@ route = "$APP_HOSTNAME/*"
 
 [vars]
 APP_ENV = "$APP_ENV"
+
+[build]
+command = ""
+
+[build.upload]
+format = "modules"
+dir = "./dist/site"
+main = "./index.js"
+
+[[build.upload.rules]]
+type = "ESModule"
+globs = ["**/*.js"]

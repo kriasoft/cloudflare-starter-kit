@@ -1362,6 +1362,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/kv-asset-handler@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@cloudflare/kv-asset-handler@npm:0.2.0"
+  dependencies:
+    mime: "npm:^3.0.0"
+  checksum: ce1ea9525387f65d4eec9337abc32a9ddcc0d3b790ed3dbbfb5c8affd1e71e0de9c99689f87cf31553af4df2c05d08a019daa0e13734f96f058282116a8ac54d
+  languageName: node
+  linkType: hard
+
 "@cloudflare/workers-types@npm:^3.11.0":
   version: 3.11.0
   resolution: "@cloudflare/workers-types@npm:3.11.0"
@@ -2646,6 +2655,15 @@ __metadata:
   checksum: b9266228a3e1406086ece57c20f9cbfc9755375218697c79a71fba9245ad23a672687314422e97753fbb3bccd245d7c76974d7c15ba513386b499de6ba002300
   languageName: node
   linkType: hard
+
+"api@workspace:api":
+  version: 0.0.0-use.local
+  resolution: "api@workspace:api"
+  dependencies:
+    "@cloudflare/kv-asset-handler": "npm:^0.2.0"
+    core: "workspace:*"
+  languageName: unknown
+  linkType: soft
 
 "app@workspace:.":
   version: 0.0.0-use.local
@@ -5613,6 +5631,15 @@ __metadata:
   dependencies:
     mime-db: "npm:1.52.0"
   checksum: 51e3b38d1b1b83da082f7c29042bcb22036101346394696b7643ef5da27ebf6bf71643bd45225ee75e4ea2836213780efc8c3dcd2055c84b49eb0afc061419d0
+  languageName: node
+  linkType: hard
+
+"mime@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mime@npm:3.0.0"
+  bin:
+    mime: cli.js
+  checksum: b00613ec79e1f14586c970b6651afca77947f972eca6086ccb614c2b7a1a899d0ec38c6f4418370ecb9d0cebeb4ad300999b6b7f2dcbeaf40f9e0d55874b6c81
   languageName: node
   linkType: hard
 
