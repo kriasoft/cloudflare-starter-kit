@@ -98,6 +98,23 @@ Where `--env` can be one of the supported environment names:
 
 <p align="center"><img src="https://files.tarkus.me/cloudflare-workers-deploy.svg" /></p>
 
+Alternatively, build and deploy CF workers individually:
+
+```
+$ yarn api:build
+$ yarn api:deploy [--env #0]
+
+$ yarn site:build
+$ yarn site:deploy [--env #0]
+```
+
+## How to View Logs
+
+```
+$ yarn api:cf tail --format=pretty
+$ yarn site:cf tail --format=pretty
+```
+
 ## How to Update
 
 - `yarn set version stable` — Bump Yarn to the latest version

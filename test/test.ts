@@ -1,3 +1,6 @@
+/* SPDX-FileCopyrightText: 2020-present Kriasoft */
+/* SPDX-License-Identifier: MIT */
+
 import { Miniflare } from "miniflare";
 
 const target = "site";
@@ -5,7 +8,7 @@ let mf: Miniflare;
 
 beforeAll(async () => {
   mf = new Miniflare({
-    scriptPath: `dist/${target}/index.js`,
+    scriptPath: `${target}/dist/index.js`,
     buildCommand: `yarn rollup -c --silent --environment TARGET:${target},BABEL_ENV:development`,
     modules: true,
     sitePath: "public",

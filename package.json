@@ -14,7 +14,13 @@
     "lint": "eslint --cache --report-unused-disable-directives .",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "build": "rollup -c --environment BABEL_ENV:production",
-    "deploy": "zx ./scripts/deploy.js"
+    "deploy": "yarn workspaces foreach run deploy",
+    "api:build": "rollup -c --environment TARGET:api,BABEL_ENV:production",
+    "api:deploy": "zx ./scripts/cf.js api publish --verbose",
+    "api:cf": "zx ./scripts/cf.js api",
+    "site:build": "rollup -c --environment TARGET:site,BABEL_ENV:production",
+    "site:deploy": "zx ./scripts/cf.js site publish --verbose",
+    "site:cf": "zx ./scripts/cf.js site"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -80,7 +86,7 @@
       "<rootDir>/.husky/",
       "<rootDir>/.vscode/",
       "<rootDir>/.yarn/",
-      "<rootDir>/dist/",
+      "<rootDir>/*/dist/",
       "<rootDir>/scripts/"
     ],
     "moduleFileExtensions": [
@@ -95,7 +101,7 @@
       "node"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>/dist/"
+      "<rootDir>/*/dist/"
     ],
     "setupFiles": [
       "<rootDir>/test/setup.ts"
@@ -161,7 +167,7 @@
       "/.git",
       "/.husky",
       "/.yarn",
-      "/dist",
+      "/*/dist",
       "/public/js/vendor"
     ]
   }

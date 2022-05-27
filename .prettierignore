@@ -1,7 +1,7 @@
 /.cache
 /.husky
 /.yarn
-/dist
+/*/dist/
 /public/js/vendor
 .pnp.*
 tsconfig.json

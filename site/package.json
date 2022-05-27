@@ -3,8 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "yarn api:build",
+    "deploy": "yarn site:deploy"
+  },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.2.0",
     "core": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/wrangler": "^1.19.12"
   }
 }

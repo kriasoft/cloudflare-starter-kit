@@ -7,7 +7,6 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import chalk from "chalk";
 import del from "del";
 import { globbySync } from "globby";
-import { copyFile } from "node:fs";
 import { basename, dirname } from "node:path";
 import prettyBytes from "pretty-bytes";
 
@@ -25,9 +24,10 @@ export default globbySync(["*/wrangler.toml"])
       input: `./${name}/index.ts`,
       output: {
         name,
-        file: `./dist/${name}/index.js`,
+        file: `./${name}/dist/index.js`,
         format: "es",
         minifyInternalExports: true,
+        generatedCode: "es2015",
       },
       plugins: [
         nodeResolve({
@@ -42,15 +42,7 @@ export default globbySync(["*/wrangler.toml"])
         {
           name: "custom",
           async buildStart() {
-            await del(`dist/${name}/**`);
-          },
-          async writeBundle() {
-            await Promise.all([
-              copyFile(
-                `./${name}/wrangler.toml`,
-                `./dist/${name}/wrangler.toml`
-              ),
-            ]);
+            await del(`${name}/dist/**`);
           },
           generateBundle(options, bundle) {
             if (!process.argv.includes("--silent")) {
