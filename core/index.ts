@@ -1,5 +1,6 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-export { handleError } from "./errors.js";
-export { transform } from "./transform.js";
+export * from "./encoding.js";
+export * from "./errors.js";
+export * from "./transform.js";

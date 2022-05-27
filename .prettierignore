@@ -2,5 +2,6 @@
 /.husky
 /.yarn
 /dist
+/public/js/vendor
 .pnp.*
 tsconfig.json
