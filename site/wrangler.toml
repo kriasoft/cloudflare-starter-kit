@@ -24,3 +24,6 @@ main = "./index.js"
 [[build.upload.rules]]
 type = "ESModule"
 globs = ["**/*.js"]
+
+[site]
+bucket = "./public"

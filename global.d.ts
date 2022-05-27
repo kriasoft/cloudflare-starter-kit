@@ -10,3 +10,7 @@
 declare const EXAMPLE: string;
 
 declare module "whatwg-fetch";
+
+declare module "__STATIC_CONTENT_MANIFEST" {
+  export default typeof string;
+}

@@ -62,5 +62,6 @@ export default globbySync(["*/wrangler.toml"])
           },
         },
       ],
+      external: ["__STATIC_CONTENT_MANIFEST"],
     })
   );

@@ -32,7 +32,7 @@ jobs:
       - run: yarn tsc
 
       # Test
-      # - run: yarn test
+      - run: yarn test
 
       # Build and deploy
       - run: yarn build

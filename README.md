@@ -11,9 +11,11 @@ Project template for [scaffolding](https://github.com/kriasoft/cloudflare-starte
 
 ## Features
 
-- Supports [multiple CF Workers](https://miniflare.dev/core/mount) within the same (mono)repo
-- Source code bundling with [Babel](https://babeljs.io/) and [Rollup](https://rollupjs.org/)
-- Pre-configured with [TypeScript](https://typescriptlang.org/), [ESLint](https://eslint.org/), [Jest](https://jestjs.io/), [Prettier](https://prettier.io/), and [Miniflare](https://miniflare.dev/)
+- Supports [multiple CF Workers](https://miniflare.dev/core/mount) within the same (mono)repo; using ES modules syntax
+- Pre-configured with [TypeScript](https://typescriptlang.org/), [Babel](https://babeljs.io/),
+  [Rollup](https://rollupjs.org/), [ESLint](https://eslint.org/), [Jest](https://jestjs.io/),
+  [Prettier](https://prettier.io/), [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/),
+  [Miniflare](https://miniflare.dev/)
 - Pre-configured with `local`, `test` (staging/QA), and `prod` (production) environments
 - Pre-commit Git hook(s) using Husky; CI/CD workflow (GitHub Actions)
 - Code snippets and other VSCode settings
@@ -29,11 +31,12 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>
 `├──`[`api`](./api) — Cloudflare Worker script for handling API requests<br>
 `├──`[`core`](./core) — core modules and utility functions<br>
-`├──`[`dist`](./dist) — compiled output for deployment<br>
 `├──`[`env`](./env) — environment variables for the local (dev), test (QA), and production<br>
+`├──`[`public`](./public) — static website assets (`index.html`, `favicon.ico`, etc.)<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
 `├──`[`site`](./site) — Cloudflare Worker script for serving a static website<br>
-`├──`[`bindings.d.ts`](./bindings.d.ts) — KV bindings etc.<br>
+`├──`[`babel.config.cjs`](./babel.config.cjs) — Babel configuration<br>
+`├──`[`global.d.ts`](./bindings.d.ts) — KV bindings etc.<br>
 `├──`[`package.json`](./project.json) — npm dependencies and Yarn scripts<br>
 `├──`[`rollup.config.mjs`](./rollup.config.mjs) — code bundling configuration for Rollup<br>
 `└──`[`tsconfig.json`](./tsconfig.json) — TypeScript configuration<br>
@@ -41,6 +44,7 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 ## Tech Stack
 
 [Cloudflare Workers](https://workers.cloudflare.com/), [Miniflare](https://miniflare.dev/),
+[Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/),
 [TypeScript](https://www.typescriptlang.org/), [Babel](https://babeljs.io/),
 [ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
 [Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/) with PnP,

@@ -14,14 +14,18 @@ module.exports = function (api) {
         "@babel/preset-env",
         {
           targets: "last 2 Chrome versions",
-          modules: api.env("test") ? "commonjs" : false,
+          modules: false,
         },
       ],
     ],
     plugins: [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-object-rest-spread",
-    ],
+      api.env("test") && [
+        "replace-import-extension",
+        { extMapping: { ".js": ".ts" } },
+      ],
+    ].filter(Boolean),
     overrides: [
       {
         test: "**/*.ts",
