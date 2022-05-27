@@ -11,8 +11,7 @@ process.env.CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 
 // Change the current working directory to the target workspace
 const [, , , target, ...args] = process.argv;
-const cwd = path.resolve(__dirname, "..", target);
-process.chdir(path.relative(process.cwd(), cwd));
+process.chdir(path.resolve(__dirname, "..", target));
 
 // Inject environment variables into the `wrangler.toml` file
 const config = await fs.readFile("wrangler.toml", "utf-8");
