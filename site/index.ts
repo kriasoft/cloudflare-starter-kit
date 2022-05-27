@@ -37,7 +37,4 @@ export default {
       }
     );
   }),
-} as ExportedHandler<{
-  APP_ENV: "test" | "prod";
-  __STATIC_CONTENT: Record<string, string>;
-}>;
+} as ExportedHandler<Env>;

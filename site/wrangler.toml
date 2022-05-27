@@ -18,7 +18,7 @@ command = ""
 
 [build.upload]
 format = "modules"
-dir = "./dist/site"
+dir = "./dist"
 main = "./index.js"
 
 [[build.upload.rules]]
@@ -26,4 +26,4 @@ type = "ESModule"
 globs = ["**/*.js"]
 
 [site]
-bucket = "./public"
+bucket = "../public"

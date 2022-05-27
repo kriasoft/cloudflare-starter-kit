@@ -21,7 +21,7 @@ command = ""
 
 [build.upload]
 format = "modules"
-dir = "./dist/api"
+dir = "./dist"
 main = "./index.js"
 
 [[build.upload.rules]]

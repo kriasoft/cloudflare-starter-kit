@@ -2661,6 +2661,7 @@ __metadata:
   resolution: "api@workspace:api"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
+    "@cloudflare/wrangler": "npm:^1.19.12"
     core: "workspace:*"
   languageName: unknown
   linkType: soft
@@ -6749,6 +6750,7 @@ __metadata:
   resolution: "site@workspace:site"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
+    "@cloudflare/wrangler": "npm:^1.19.12"
     core: "workspace:*"
   languageName: unknown
   linkType: soft

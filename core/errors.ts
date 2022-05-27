@@ -4,9 +4,9 @@
 export function handleError<Env = unknown>(
   handler: ExportedHandlerFetchHandler<Env>
 ): ExportedHandlerFetchHandler<Env> {
-  return function (req, res, ctx) {
+  return async function (req, res, ctx) {
     try {
-      return handler(req, res, ctx);
+      return await handler(req, res, ctx);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Application error";
       return new Response(message, { status: 500 });
