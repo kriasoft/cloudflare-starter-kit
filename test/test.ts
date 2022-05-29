@@ -1,6 +1,7 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
+import envars from "envars";
 import { Miniflare } from "miniflare";
 
 const target = "site";
@@ -12,6 +13,7 @@ beforeAll(async () => {
     buildCommand: `yarn rollup -c --silent --environment TARGET:${target},BABEL_ENV:development`,
     modules: true,
     sitePath: "public",
+    bindings: envars.config(),
   });
 });
 

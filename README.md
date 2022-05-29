@@ -17,8 +17,9 @@ Project template for [scaffolding](https://github.com/kriasoft/cloudflare-starte
   [Prettier](https://prettier.io/), [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/),
   [Miniflare](https://miniflare.dev/)
 - Pre-configured with `local`, `test` (staging/QA), and `prod` (production) environments
-- Pre-commit Git hook(s) using Husky; CI/CD workflow (GitHub Actions)
-- Code snippets and other VSCode settings
+- Pre-configured with local testing and debugging; loading environment variables from `*.env` files
+- [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) usage example for integrating with 3rd party services (Google Cloud, etc.)
+- Code snippets and other VSCode settings; CI/CD workflows with GitHub Actions
 
 ---
 
