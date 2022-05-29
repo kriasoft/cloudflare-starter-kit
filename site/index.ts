@@ -5,11 +5,11 @@ import {
   getAssetFromKV,
   serveSinglePageApp,
 } from "@cloudflare/kv-asset-handler";
-import { handleError } from "core";
+import { Env } from "core";
 import manifest from "__STATIC_CONTENT_MANIFEST";
 
 export default {
-  fetch: handleError((req, env, ctx) => {
+  async fetch(req, env, ctx) {
     const url = new URL(req.url);
 
     if (url.pathname === "/echo" && env.APP_ENV === "test") {
@@ -17,13 +17,17 @@ export default {
         JSON.stringify({
           headers: Object.fromEntries(req.headers.entries()),
           cf: req.cf,
+          APP_ENV: env.APP_ENV,
+          APP_NAME: env.APP_NAME,
+          APP_HOSTNAME: env.APP_HOSTNAME,
           __STATIC_CONTENT_MANIFEST: JSON.parse(manifest),
         }),
         { status: 200 }
       );
     }
 
-    return getAssetFromKV(
+    // Retrieve and serve static assets from the `/public` folder
+    return await getAssetFromKV(
       {
         request: req,
         waitUntil(promise) {
@@ -36,5 +40,5 @@ export default {
         mapRequestToAsset: serveSinglePageApp,
       }
     );
-  }),
+  },
 } as ExportedHandler<Env>;
