@@ -2072,6 +2072,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-json@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@rollup/plugin-json@npm:4.1.0"
+  dependencies:
+    "@rollup/pluginutils": "npm:^3.0.8"
+  peerDependencies:
+    rollup: ^1.20.0 || ^2.0.0
+  checksum: 8235df2e909e55e946aea7b99cc4c6d8e9d1d1ce29b83eef35f1b888caac71e390f94843802216ad1917c7d0e2a17c5b70839515dc6d7f3e9ee0f50872997dac
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-node-resolve@npm:^13.3.0":
   version: 13.3.0
   resolution: "@rollup/plugin-node-resolve@npm:13.3.0"
@@ -2088,7 +2099,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^3.1.0":
+"@rollup/pluginutils@npm:^3.0.8, @rollup/pluginutils@npm:^3.1.0":
   version: 3.1.0
   resolution: "@rollup/pluginutils@npm:3.1.0"
   dependencies:
@@ -2699,6 +2710,7 @@ __metadata:
     "@jest/globals": "npm:^28.1.0"
     "@rollup/plugin-babel": "npm:^5.3.1"
     "@rollup/plugin-commonjs": "npm:^22.0.0"
+    "@rollup/plugin-json": "npm:^4.1.0"
     "@rollup/plugin-node-resolve": "npm:^13.3.0"
     "@types/babel__core": "npm:^7.1.19"
     "@types/babel__preset-env": "npm:^7.9.2"
@@ -2729,7 +2741,7 @@ __metadata:
     minimist: "npm:^1.2.6"
     prettier: "npm:^2.6.2"
     pretty-bytes: "npm:^6.0.0"
-    rollup: "npm:^2.75.1"
+    rollup: "npm:^2.75.3"
     typescript: "npm:^4.7.2"
     whatwg-fetch: "npm:^3.6.2"
     zx: "npm:^6.1.0"
@@ -3383,6 +3395,8 @@ __metadata:
 "core@workspace:*, core@workspace:core":
   version: 0.0.0-use.local
   resolution: "core@workspace:core"
+  dependencies:
+    rfc4648: "npm:^1.5.1"
   languageName: unknown
   linkType: soft
 
@@ -6578,6 +6592,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rfc4648@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "rfc4648@npm:1.5.1"
+  checksum: 0b63ce3d2d2d6b74d43e3038b0338a71c478f61ed715c7b5ac74696d3de24b5308de0fd1b7e5f67a3510f64cbb18cf6e40d20025a0275cbc33164cf9a4ca0c04
+  languageName: node
+  linkType: hard
+
 "rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
   version: 3.0.2
   resolution: "rimraf@npm:3.0.2"
@@ -6589,9 +6610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.75.1":
-  version: 2.75.1
-  resolution: "rollup@npm:2.75.1"
+"rollup@npm:^2.75.3":
+  version: 2.75.3
+  resolution: "rollup@npm:2.75.3"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -6599,7 +6620,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: c13b451039a3df31d2851474c9d8c298598de95589475cbd2eb1e22caa63c064be3e988470eb84f4cb5e9fd4b93d54b265b88206128be1742b237bc653a8669f
+  checksum: 6462a848735b25da6c8807d53ef18459d410856b83fd432615bc75988a7309f8a89926ecb4b547d3fa643c7cc4ea941b2a77902465e733f0dce82cbd347f817e
   languageName: node
   linkType: hard
 

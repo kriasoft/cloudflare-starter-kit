@@ -3,6 +3,7 @@
 
 import { babel } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import chalk from "chalk";
 import del from "del";
@@ -35,6 +36,7 @@ export default globbySync(["*/wrangler.toml"])
           browser: true,
         }),
         commonjs(),
+        json(),
         babel({
           extensions: [".js", ".mjs", ".ts", ".tsx"],
           babelHelpers: "bundled",
