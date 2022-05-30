@@ -5,10 +5,8 @@
 import { base64, base64url } from "rfc4648";
 import { Env } from "./env.js";
 
-const cache = new Map<
-  symbol,
-  CryptoKey | Credentials | AccessToken | IdToken
->();
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+const cache = new Map<symbol, any>();
 
 /**
  * Decodes a base64 encoded JSON key into an object memoizing the return value.
@@ -83,7 +81,7 @@ async function getAuthToken<T extends AccessToken | IdToken = AccessToken>(
   scope: string | string[]
 ): Promise<T> {
   const credentials = decodeCredentials(env.GOOGLE_CLOUD_CREDENTIALS);
-  const scopes = Array.isArray(scope) ? scope.join(",") : scope;
+  const scopes = Array.isArray(scope) ? scope.join(" ") : scope;
   const cacheKey = Symbol.for(`token:${credentials.private_key_id}:${scopes}`);
   const issued = Math.floor(Date.now() / 1000);
   let authToken = cache.get(cacheKey) as T | undefined;
