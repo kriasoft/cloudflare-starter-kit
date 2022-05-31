@@ -3,7 +3,9 @@
 
 name = "$APP_NAME-api"
 type = "javascript"
-compatibility_date = "2022-02-19"
+
+# https://developers.cloudflare.com/workers/platform/compatibility-dates/
+compatibility_date = "2022-04-18"
 
 account_id = "$CLOUDFLARE_ACCOUNT_ID"
 zone_id = "$CLOUDFLARE_ZONE_ID"
@@ -17,7 +19,9 @@ routes = [
 APP_ENV = "$APP_ENV"
 APP_NAME = "$APP_NAME"
 APP_HOSTNAME = "$APP_HOSTNAME"
-GOOGLE_CLOUD_CREDENTIALS = "$GOOGLE_CLOUD_CREDENTIALS"
+
+# [secrets]
+# GOOGLE_CLOUD_CREDENTIALS
 
 [build]
 command = ""
