@@ -83,8 +83,16 @@ Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) 
 
 ## How to Deploy
 
-Ensure that Cloudflare account credentials are up-to-date (see [`./env`](./env)
-folder). Then compile and deploy the worker scripts by running:
+Ensure that Cloudflare account credentials and all the environment variables
+found in the [`./env`](./env) folder are up-to-date. Then push the required
+secrets to Cloudflare Workers, for example:
+
+```
+$ yarn api:cf secret put GOOGLE_CLOUD_CREDENTIALS [--env #0]
+$ yarn site:cf secret put GOOGLE_CLOUD_CREDENTIALS [--env #0]
+```
+
+Finally, build and deploy the app:
 
 ```
 $ yarn build

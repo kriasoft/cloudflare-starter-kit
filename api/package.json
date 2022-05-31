@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.2.0",
-    "core": "workspace:*"
+    "core": "workspace:*",
+    "web-auth-library": "^0.3.0"
   },
   "devDependencies": {
     "@cloudflare/wrangler": "^1.19.12"
