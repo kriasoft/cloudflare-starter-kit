@@ -4,5 +4,3 @@
 declare module "__STATIC_CONTENT_MANIFEST" {
   export default typeof string;
 }
-
-declare module "whatwg-fetch";

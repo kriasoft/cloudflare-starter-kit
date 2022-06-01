@@ -3,8 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "exports": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "rfc4648": "^1.5.2"
+  },
+  "devDependencies": {
+    "@miniflare/durable-objects": "^2.5.0"
   }
 }

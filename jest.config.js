@@ -44,8 +44,6 @@ export default {
 
   modulePathIgnorePatterns: ["<rootDir>/*/dist/"],
 
-  setupFiles: ["<rootDir>/test/setup.ts"],
-
   transform: {
     "\\.ts$": "babel-jest",
   },

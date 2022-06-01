@@ -11,5 +11,8 @@
     "@cloudflare/kv-asset-handler": "^0.2.0",
     "core": "workspace:*",
     "web-auth-library": "^0.3.1"
+  },
+  "devDependencies": {
+    "@jest/globals": "^28.1.0"
   }
 }

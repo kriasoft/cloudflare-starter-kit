@@ -1911,7 +1911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@miniflare/durable-objects@npm:2.5.0":
+"@miniflare/durable-objects@npm:2.5.0, @miniflare/durable-objects@npm:^2.5.0":
   version: 2.5.0
   resolution: "@miniflare/durable-objects@npm:2.5.0"
   dependencies:
@@ -2469,13 +2469,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "@types/jest@npm:27.5.1"
+"@types/jest@npm:^27.5.2":
+  version: 27.5.2
+  resolution: "@types/jest@npm:27.5.2"
   dependencies:
     jest-matcher-utils: "npm:^27.0.0"
     pretty-format: "npm:^27.0.0"
-  checksum: 21e447212fab9fc490700ee3ee2c9db3b93b5d7eca0c78731c48e2f9b9fa7452cdb1fe3b0607441e85d6017eba6e0d97ae1dba17ad903b74d55c8b375636fd81
+  checksum: df1fb3d09dba7fc004eae976f2f4fd4f9703ad5682b6e1c025b1a4e6b418a11491c0a3589b8b5d2566eda73af69071d1432041c9a31aa33d28d9fe4224c8631b
   languageName: node
   linkType: hard
 
@@ -2848,6 +2848,7 @@ __metadata:
   resolution: "api@workspace:api"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
+    "@jest/globals": "npm:^28.1.0"
     core: "workspace:*"
     web-auth-library: "npm:^0.3.1"
   languageName: unknown
@@ -2876,7 +2877,7 @@ __metadata:
     "@types/babel__core": "npm:^7.1.19"
     "@types/babel__preset-env": "npm:^7.9.2"
     "@types/eslint": "npm:^8.4.2"
-    "@types/jest": "npm:^27.5.1"
+    "@types/jest": "npm:^27.5.2"
     "@types/lodash": "npm:^4.14.182"
     "@types/minimist": "npm:^1.2.2"
     "@types/node": "npm:^17.0.38"
@@ -3566,6 +3567,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "core@workspace:core"
   dependencies:
+    "@miniflare/durable-objects": "npm:^2.5.0"
     rfc4648: "npm:^1.5.2"
   languageName: unknown
   linkType: soft
@@ -7344,6 +7346,7 @@ __metadata:
   resolution: "site@workspace:site"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
+    "@jest/globals": "npm:^28.1.0"
     core: "workspace:*"
   languageName: unknown
   linkType: soft

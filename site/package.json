@@ -10,5 +10,8 @@
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.2.0",
     "core": "workspace:*"
+  },
+  "devDependencies": {
+    "@jest/globals": "^28.1.0"
   }
 }
