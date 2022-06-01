@@ -95,7 +95,6 @@ $ yarn site:cf secret put GOOGLE_CLOUD_CREDENTIALS [--env #0]
 Finally, build and deploy the app:
 
 ```
-$ yarn build
 $ yarn deploy [--env #0]
 ```
 
@@ -110,10 +109,7 @@ Where `--env` can be one of the supported environment names:
 Alternatively, build and deploy CF workers individually:
 
 ```
-$ yarn api:build
 $ yarn api:deploy [--env #0]
-
-$ yarn site:build
 $ yarn site:deploy [--env #0]
 ```
 

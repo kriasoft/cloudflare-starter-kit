@@ -7,17 +7,23 @@ import { argv, fs, path } from "zx";
 
 // Load environment variables from the `/env/.{envName}.env` file
 const env = process.env;
-envars.config({ env: argv.env ?? "test" });
+const envName = argv.env ?? "test";
+envars.config({ env: envName });
 env.CF_API_TOKEN = env.CF_API_TOKEN ?? env.CLOUDFLARE_API_TOKEN;
 
 // Change the current working directory to the target workspace
 const [, , , target, ...args] = process.argv;
-process.chdir(path.resolve(__dirname, "..", target));
 
 // Inject environment variables into the `wrangler.toml` file
-const configFile = "dist/wrangler.toml";
-const config = await fs.readFile("wrangler.toml", "utf-8");
+const configFile = path.resolve(__dirname, `../${target}/dist/wrangler.toml`);
+const configTemplate = path.resolve(__dirname, `../${target}/wrangler.toml`);
+const config = await fs.readFile(configTemplate, "utf-8");
 await fs.writeFile(configFile, replaceEnvVars(config), "utf-8");
+
+// Append the target environment if missing
+if (!args.some((x) => x.startsWith("--env=") || x === "--env" || x === "-e")) {
+  args.push(`--env=${envName}`);
+}
 
 // Pass the secret values loaded from the environment or *.env file(s)
 if (args[0] === "secret" && args[1] === "put" && env[args[2]]) {
@@ -35,9 +41,12 @@ if (args[0] === "secret" && args[1] === "put" && env[args[2]]) {
 // Launch Wrangler CLI
 await $("yarn", ["wrangler", "-c", configFile, ...args], { stdio: "inherit" });
 
-function replaceEnvVars(/** @type {string} */ text) {
-  return text.replace(
-    /(\$[[A-Z0-9_]+)/gm,
-    (match, p1) => process.env[p1.substring(1)] ?? ""
+function replaceEnvVars(/** @type {string} */ config) {
+  return (
+    config
+      // E.g. "$APP_HOSTNAME" => "example.com"
+      .replace(/(\$[[A-Z0-9_]+)/gm, (match, p1) => env[p1.substring(1)] ?? "")
+      // E.g. "[vars]" => "[env.test.vars]"
+      .replace(/^\[vars\]/gm, `[env.${envName}.vars]`)
   );
 }
