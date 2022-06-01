@@ -2,13 +2,12 @@
 # https://developers.cloudflare.com/workers/wrangler/configuration/
 
 name = "$APP_NAME-api"
-type = "javascript"
+main = "index.js"
 
 # https://developers.cloudflare.com/workers/platform/compatibility-dates/
 compatibility_date = "2022-04-18"
 
 account_id = "$CLOUDFLARE_ACCOUNT_ID"
-zone_id = "$CLOUDFLARE_ZONE_ID"
 
 routes = [
   "$APP_HOSTNAME/api/*",
@@ -23,14 +22,6 @@ APP_HOSTNAME = "$APP_HOSTNAME"
 # [secrets]
 # GOOGLE_CLOUD_CREDENTIALS
 
-[build]
-command = ""
-
-[build.upload]
-format = "modules"
-dir = "./dist"
-main = "./index.js"
-
-[[build.upload.rules]]
+[[rules]]
 type = "ESModule"
 globs = ["**/*.js"]
