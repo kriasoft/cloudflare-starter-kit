@@ -14,6 +14,7 @@
     "lint": "eslint --cache --report-unused-disable-directives .",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "build": "rollup -c --environment BABEL_ENV:production",
+    "cf": "zx ./scripts/cf.js",
     "deploy": "yarn workspaces foreach run deploy",
     "api:build": "rollup -c --environment TARGET:api,BABEL_ENV:production",
     "api:deploy": "yarn api:build && zx ./scripts/cf.js api publish",
