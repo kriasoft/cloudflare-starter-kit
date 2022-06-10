@@ -12,6 +12,6 @@
     "core": "workspace:*"
   },
   "devDependencies": {
-    "@jest/globals": "^28.1.0"
+    "@jest/globals": "^28.1.1"
   }
 }
