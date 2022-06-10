@@ -18,6 +18,8 @@ export default {
   testEnvironmentOptions: {
     bindings: envars.config(),
     kvNamespaces: [],
+    sitePath: "public",
+    modules: true,
   },
 
   testPathIgnorePatterns: [

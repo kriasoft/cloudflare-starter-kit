@@ -6,14 +6,13 @@ import worker from "./index.js";
 
 test("GET /api/people/1", async () => {
   const env = await getMiniflareBindings();
+  const ctx = { passThroughOnException: jest.fn(), waitUntil: jest.fn() };
+
   const req = new Request(`https://${env.APP_HOSTNAME}/api/people/1`, {
     headers: { "accept-type": "application/json" },
   });
 
-  const res = await worker.fetch?.(req, env, {
-    passThroughOnException: jest.fn(),
-    waitUntil: jest.fn(),
-  });
+  const res = await worker.fetch?.(req, env, ctx);
 
   expect({
     status: res?.status,
