@@ -23,8 +23,10 @@ jobs:
           restore-keys: ${{ runner.os }}-yarn-
 
       # Install dependencies
-      - run: yarn config set enableGlobalCache false
-      - run: yarn install
+      - name: yarn install
+        run: |
+          yarn config set enableGlobalCache false
+          yarn install
 
       # Analyze code for potential problems
       - run: yarn prettier --check .

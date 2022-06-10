@@ -2,7 +2,7 @@
 /* SPDX-License-Identifier: MIT */
 
 import { Env, handleError } from "core";
-import { getAuthToken } from "web-auth-library/gcp";
+import { getAuthToken } from "web-auth-library/google";
 
 export default {
   fetch: handleError(async (req, env) => {
