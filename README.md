@@ -37,7 +37,6 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
 `├──`[`site`](./site) — Cloudflare Worker script for serving a static website<br>
 `├──`[`babel.config.cjs`](./babel.config.cjs) — Babel configuration<br>
-`├──`[`global.d.ts`](./bindings.d.ts) — KV bindings etc.<br>
 `├──`[`package.json`](./project.json) — npm dependencies and Yarn scripts<br>
 `├──`[`rollup.config.mjs`](./rollup.config.mjs) — code bundling configuration for Rollup<br>
 `└──`[`tsconfig.json`](./tsconfig.json) — TypeScript configuration<br>
@@ -80,6 +79,7 @@ Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) 
 - `yarn test` — Run unit tests with Jest and Supertest
 - `yarn build` — Compiles and bundles worker scripts into the `dist` folder
 - `yarn deploy` — Deploys the worker scripts to Cloudflare
+- `yarn cf <workspace>` — Wrangler CLI wrapper
 
 ## How to Deploy
 

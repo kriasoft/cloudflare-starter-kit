@@ -28,7 +28,12 @@ export default {
 
     // Retrieve and serve static assets from the `/public` folder
     return await getAssetFromKV(
-      { request: req, waitUntil: ctx.waitUntil },
+      {
+        request: req,
+        waitUntil(promise) {
+          return ctx.waitUntil(promise);
+        },
+      },
       {
         ASSET_NAMESPACE: env.__STATIC_CONTENT,
         ASSET_MANIFEST: JSON.parse(manifest),

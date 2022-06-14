@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn api:build",
+    "build": "yarn site:build",
     "deploy": "yarn site:deploy"
   },
   "dependencies": {

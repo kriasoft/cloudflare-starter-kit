@@ -2747,8 +2747,8 @@ __metadata:
     rollup: "npm:^2.75.6"
     typescript: "npm:^4.7.3"
     whatwg-fetch: "npm:^3.6.2"
-    wrangler: "npm:^2.0.11"
-    zx: "npm:^6.2.5"
+    wrangler: "npm:^2.0.12"
+    zx: "npm:^7.0.0"
   languageName: unknown
   linkType: soft
 
@@ -3385,12 +3385,12 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.21.0, core-js-compat@npm:^3.22.1":
-  version: 3.23.0
-  resolution: "core-js-compat@npm:3.23.0"
+  version: 3.23.1
+  resolution: "core-js-compat@npm:3.23.1"
   dependencies:
     browserslist: "npm:^4.20.4"
     semver: "npm:7.0.0"
-  checksum: cf177d9b075060fc23c65a7c99de5dd2e31fb34eb69bbe347b23c85e0874d4727d951927e33eb4c3cefbf1b42a2a78978097cbb78ac8c894b73843cb3b38dbd8
+  checksum: d398318497d5ed575f33b7c5111f2b9241b716789ce2d4a1f326a425e243138c1d5889456de7961df880a3c380564f9e51a59c450491449b990c217077645077
   languageName: node
   linkType: hard
 
@@ -4579,7 +4579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^13.1.1, globby@npm:^13.1.2":
+"globby@npm:^13.1.2":
   version: 13.1.2
   resolution: "globby@npm:13.1.2"
   dependencies:
@@ -6183,7 +6183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^3.2.5":
+"node-fetch@npm:^3.2.6":
   version: 3.2.6
   resolution: "node-fetch@npm:3.2.6"
   dependencies:
@@ -7792,10 +7792,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^2.0.11":
-  version: 2.0.11
-  resolution: "wrangler@npm:2.0.11"
+"wrangler@npm:^2.0.12":
+  version: 2.0.12
+  resolution: "wrangler@npm:2.0.12"
   dependencies:
+    "@cloudflare/kv-asset-handler": "npm:^0.2.0"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.1.1"
     "@esbuild-plugins/node-modules-polyfill": "npm:^0.1.4"
     blake3-wasm: "npm:^2.1.5"
@@ -7813,7 +7814,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: f198b1b85ed54188c1c38e96ade95a314c536bf229c7cfa9e27ae16d8f4da137bb7410c9e6605ce4b7bbc603ec6630a0413c57e99c8897c5a03c9f01be3ed989
+  checksum: d170cdacc36e3fade1e14485dfb4427294837cc1020a2e152c1ea09e52f6fe3025404bd6aba6f82b61ca0380d4cabe1cef35edb1c524e9a07fccbc26dceaf134
   languageName: node
   linkType: hard
 
@@ -7936,9 +7937,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zx@npm:^6.2.5":
-  version: 6.2.5
-  resolution: "zx@npm:6.2.5"
+"zx@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "zx@npm:7.0.0"
   dependencies:
     "@types/fs-extra": "npm:^9.0.13"
     "@types/minimist": "npm:^1.2.2"
@@ -7947,15 +7948,14 @@ __metadata:
     "@types/which": "npm:^2.0.1"
     chalk: "npm:^5.0.1"
     fs-extra: "npm:^10.1.0"
-    globby: "npm:^13.1.1"
-    ignore: "npm:^5.2.0"
+    globby: "npm:^13.1.2"
     minimist: "npm:^1.2.6"
-    node-fetch: "npm:^3.2.5"
+    node-fetch: "npm:^3.2.6"
     ps-tree: "npm:^1.2.0"
     which: "npm:^2.0.2"
     yaml: "npm:^2.1.1"
   bin:
     zx: build/cli.js
-  checksum: 0d2c44ee33d5e7b03de411ea76251aea618dec41dc22d778215b6d4bf7e21c11d23cb463e6a4ae0de12c9b0ca80be06d4bd85100df52b71478505697eaecdc25
+  checksum: 212a04dbb2a8169da3b392250095c1e94edd8296cc9de6c6641f8c411c7121665efef5df3f402e99a828d11b83f50601d60c2d46607f86504b33636b69211f9e
   languageName: node
   linkType: hard
