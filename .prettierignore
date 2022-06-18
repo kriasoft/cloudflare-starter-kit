@@ -4,4 +4,4 @@
 /*/dist/
 /public/js/vendor
 .pnp.*
-tsconfig.json
+/tsconfig.json

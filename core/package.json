@@ -7,10 +7,7 @@
     ".": "./index.ts",
     "./package.json": "./package.json"
   },
-  "dependencies": {
-    "rfc4648": "^1.5.2"
-  },
   "devDependencies": {
-    "@miniflare/durable-objects": "^2.5.0"
+    "@types/jest": "^28.1.2"
   }
 }

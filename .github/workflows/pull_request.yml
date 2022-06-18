@@ -31,7 +31,7 @@ jobs:
       # Analyze code for potential problems
       - run: yarn prettier --check .
       - run: yarn lint
-      - run: yarn tsc
+      # - run: yarn tsc
 
       # Test
       - run: yarn test

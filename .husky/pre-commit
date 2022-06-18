@@ -3,4 +3,4 @@
 
 prettier --check .
 yarn lint
-yarn tsc
+# yarn tsc

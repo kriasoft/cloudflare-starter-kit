@@ -1,26 +1,31 @@
 {
-  "name": "app",
+  "name": "example",
   "version": "0.0.0",
+  "packageManager": "yarn@4.0.0-rc.9",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.0.0-rc.9",
   "workspaces": [
     "api",
+    "app",
     "core",
     "site"
   ],
   "scripts": {
     "postinstall": "husky install && node ./scripts/postinstall.js",
+    "start": "zx ./scripts/start.js",
     "lint": "eslint --cache --report-unused-disable-directives .",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "build": "rollup -c --environment BABEL_ENV:production",
     "cf": "zx ./scripts/cf.js",
     "deploy": "yarn workspaces foreach run deploy",
+    "app:start": "yarn workspace app run start",
+    "app:build": "yarn workspace app run build",
+    "app:preview": "yarn workspace app run preview",
     "api:build": "rollup -c --environment TARGET:api,BABEL_ENV:production",
     "api:deploy": "yarn api:build && zx ./scripts/cf.js api publish",
     "api:cf": "zx ./scripts/cf.js api",
     "site:build": "rollup -c --environment TARGET:site,BABEL_ENV:production",
-    "site:deploy": "yarn site:build && zx ./scripts/cf.js site publish",
+    "site:deploy": "yarn workspace app run build && yarn site:build && zx ./scripts/cf.js site publish",
     "site:cf": "zx ./scripts/cf.js site"
   },
   "devDependencies": {

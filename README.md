@@ -31,9 +31,9 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`.github`](.github) — GitHub configuration including CI/CD workflows<br>
 `├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>
 `├──`[`api`](./api) — Cloudflare Worker script for handling API requests<br>
-`├──`[`core`](./core) — core modules and utility functions<br>
+`├──`[`app`](./app) — Web application front-end<br>
+`├──`[`core`](./core) — Shared modules and utility functions<br>
 `├──`[`env`](./env) — environment variables for the local (dev), test (QA), and production<br>
-`├──`[`public`](./public) — static website assets (`index.html`, `favicon.ico`, etc.)<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
 `├──`[`site`](./site) — Cloudflare Worker script for serving a static website<br>
 `├──`[`babel.config.cjs`](./babel.config.cjs) — Babel configuration<br>
@@ -44,10 +44,10 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 ## Tech Stack
 
 [Cloudflare Workers](https://workers.cloudflare.com/), [Miniflare](https://miniflare.dev/),
-[Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/),
+[Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/), [Vite](https://vitejs.dev/),
 [TypeScript](https://www.typescriptlang.org/), [Babel](https://babeljs.io/),
 [ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
-[Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/) with PnP,
+[Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/),
 [Rollup](https://rollupjs.org/).
 
 ## Requirements
@@ -64,7 +64,7 @@ repository, install dependencies, open it in VSCode and start hacking:
 $ git clone https://github.com/kriasoft/cloudflare-starter-kit.git
 $ cd ./cloudflare-starter-kit
 $ yarn install
-$ yarn test
+$ yarn start
 ```
 
 Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) folders.
@@ -73,6 +73,7 @@ Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) 
 
 ## Scripts
 
+- `yarn start` - Launches web application
 - `yarn lint` — Validate the code using ESLint
 - `yarn tsc` — Validate the code using TypeScript compiler
 - `yarn test` — Run unit tests with Jest and Supertest

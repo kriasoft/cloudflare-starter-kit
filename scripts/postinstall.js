@@ -25,8 +25,8 @@ for (const env of environments) {
       filename,
       [
         `# Overrides for the "${env.name}" (${env.description}) environment`,
-        `# JWT_SECRET=xxxxx`,
         `# CLOUDFLARE_API_TOKEN=xxxxx`,
+        `# GOOGLE_CLOUD_CREDENTIALS=xxxxx`,
         ``,
       ].join(EOL),
       "utf-8"
