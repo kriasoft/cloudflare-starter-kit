@@ -8,8 +8,7 @@
     "deploy": "yarn site:deploy"
   },
   "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.2.0",
-    "core": "workspace:*"
+    "@cloudflare/kv-asset-handler": "^0.2.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.13.0",

@@ -1,13 +1,17 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "NodeNext",
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
-    "types": ["vite/client", "jest"]
+    // https://github.com/emotion-js/emotion/issues/2742
+    // "jsxImportSource": "@emotion/react",
+    "types": ["vite/client", "jest"],
+    "outDir": "./dist"
   },
   "include": ["**/*"],
-  "exclude": ["dist/**/*"]
+  "exclude": ["dist/**/*", "vite.config.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

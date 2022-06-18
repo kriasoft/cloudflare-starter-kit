@@ -5,3 +5,4 @@
 /public/js/vendor
 .pnp.*
 /tsconfig.json
+/tsconfig.base.json

@@ -18,6 +18,7 @@ module.exports = function (api) {
         },
       ],
     ],
+
     plugins: [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-object-rest-spread",
@@ -26,6 +27,7 @@ module.exports = function (api) {
         { extMapping: { ".js": ".ts" } },
       ],
     ].filter(Boolean),
+
     overrides: [
       {
         test: "**/*.ts",

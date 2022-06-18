@@ -31,15 +31,14 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`.github`](.github) — GitHub configuration including CI/CD workflows<br>
 `├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>
 `├──`[`api`](./api) — Cloudflare Worker script for handling API requests<br>
-`├──`[`app`](./app) — Web application front-end<br>
-`├──`[`core`](./core) — Shared modules and utility functions<br>
+`├──`[`app`](./app) — Web application front-end powered by [Vite](https://vitejs.dev/) and [React.js](https://reactjs.org/)<br>
 `├──`[`env`](./env) — environment variables for the local (dev), test (QA), and production<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
 `├──`[`site`](./site) — Cloudflare Worker script for serving a static website<br>
 `├──`[`babel.config.cjs`](./babel.config.cjs) — Babel configuration<br>
 `├──`[`package.json`](./project.json) — npm dependencies and Yarn scripts<br>
 `├──`[`rollup.config.mjs`](./rollup.config.mjs) — code bundling configuration for Rollup<br>
-`└──`[`tsconfig.json`](./tsconfig.json) — TypeScript configuration<br>
+`└──`[`tsconfig.base.json`](./tsconfig.base.json) — TypeScript configuration<br>
 
 ## Tech Stack
 
@@ -57,8 +56,8 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Getting Started
 
-Just [clone](https://github.com/kriasoft/cloudflare-starter-kit/generate) the
-repository, install dependencies, open it in VSCode and start hacking:
+[Generate a new repository](https://github.com/kriasoft/cloudflare-starter-kit/generate)
+from this template, clone, install dependencies, open it in VSCode and start hacking:
 
 ```bash
 $ git clone https://github.com/kriasoft/cloudflare-starter-kit.git
@@ -89,7 +88,6 @@ secrets to Cloudflare Workers, for example:
 
 ```
 $ yarn api:cf secret put GOOGLE_CLOUD_CREDENTIALS [--env #0]
-$ yarn site:cf secret put GOOGLE_CLOUD_CREDENTIALS [--env #0]
 ```
 
 Finally, build and deploy the app:
@@ -100,7 +98,7 @@ $ yarn deploy [--env #0]
 
 Where `--env` can be one of the supported environment names:
 
-- **`local`**: https://dev.example.com (local development and unit testing)
+- **`local`**: http://localhost:3000 (local development and unit testing)
 - **`test`**: https://test.example.com (staging/QA)
 - **`prod`**: https://example.com (production)
 
