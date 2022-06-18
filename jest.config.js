@@ -44,6 +44,10 @@ export default {
     "node",
   ],
 
+  moduleNameMapper: {
+    __STATIC_CONTENT_MANIFEST: "<rootDir>/test/manifest.ts",
+  },
+
   modulePathIgnorePatterns: ["<rootDir>/*/dist/"],
 
   transform: {
