@@ -4,7 +4,7 @@
 # Compiled output
 /*/dist/
 
-# Yarn without Zero-install
+# Yarn with PnP
 # https://yarnpkg.com/getting-started/qa/#which-files-should-be-gitignored
 .pnp.*
 .yarn/*
@@ -13,6 +13,7 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+node_modules
 
 # Logs
 yarn-debug.log*
@@ -37,6 +38,9 @@ yarn-error.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/workers.code-snippets
+
+# WebStorm
+.idea
 
 # macOS
 # https://github.com/github/gitignore/blob/master/Global/macOS.gitignore

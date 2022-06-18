@@ -1,17 +1,21 @@
-# GitHub Actions workflow for Pull Requests
+# GitHub Actions workflow
 # https://help.github.com/actions
 
-name: PR
+name: Push (release)
 
-on: [pull_request]
+on:
+  push:
+    branches: [release]
 
 env:
   VERSION: ${{ github.event.pull_request.number }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
   HUSKY: 0
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
@@ -29,14 +33,6 @@ jobs:
           yarn config set enableGlobalCache false
           yarn install
 
-      # Analyze code for potential problems
-      - run: yarn prettier --check .
-      - run: yarn lint
-      - run: yarn tsc
-
-      # Test
-      - run: yarn build
-      - run: yarn test
-
-      # Build and deploy
-      # - run: yarn deploy --env=test --version=$VERSION
+      # Deploy
+      # - run: yarn api:deploy --env=prod
+      # - run: yarn site:deploy --env=prod

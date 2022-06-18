@@ -45,7 +45,7 @@ export default {
   ],
 
   moduleNameMapper: {
-    __STATIC_CONTENT_MANIFEST: "<rootDir>/test/manifest.ts",
+    __STATIC_CONTENT_MANIFEST: "<rootDir>/site/manifest.ts",
   },
 
   modulePathIgnorePatterns: ["<rootDir>/*/dist/"],
