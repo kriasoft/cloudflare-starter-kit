@@ -18,7 +18,7 @@ export default {
   testEnvironmentOptions: {
     bindings: envars.config(),
     kvNamespaces: [],
-    sitePath: "public",
+    sitePath: "app/dist",
     modules: true,
   },
 

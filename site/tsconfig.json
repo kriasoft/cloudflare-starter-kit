@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
+    "types": ["@cloudflare/workers-types", "jest"]
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["dist/**/*"]
+}

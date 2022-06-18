@@ -13,6 +13,8 @@
     "web-auth-library": "^0.4.1"
   },
   "devDependencies": {
-    "@jest/globals": "^28.1.1"
+    "@cloudflare/workers-types": "^3.13.0",
+    "@jest/globals": "^28.1.1",
+    "@types/jest": "^28.1.2"
   }
 }
