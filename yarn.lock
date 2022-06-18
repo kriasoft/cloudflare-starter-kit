@@ -1371,10 +1371,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/workers-types@npm:^3.11.0":
-  version: 3.11.0
-  resolution: "@cloudflare/workers-types@npm:3.11.0"
-  checksum: 349920da92e7543bc434780bbafc466c46b066ac6b91e15b1ebfc7c010c655cf7599de713019b413ffd6a0386e034658957a1ae1efd47f43dbdb53b4253cd73c
+"@cloudflare/workers-types@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "@cloudflare/workers-types@npm:3.13.0"
+  checksum: 556120c5c4efe4b9788a04992a78c5cc8ac02caf50962f019b8d944f88dee3f1efc28d0b4a51cd01eb49f654e08bdcc262186d22fdeacc106108a7f59559a5e3
   languageName: node
   linkType: hard
 
@@ -2302,13 +2302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^28.1.1":
-  version: 28.1.1
-  resolution: "@types/jest@npm:28.1.1"
+"@types/jest@npm:^28.1.2":
+  version: 28.1.2
+  resolution: "@types/jest@npm:28.1.2"
   dependencies:
-    jest-matcher-utils: "npm:^27.0.0"
-    pretty-format: "npm:^27.0.0"
-  checksum: f6b9625a7669dc53164a805f0b788bc2cf9f3ab35e38d2d445b4b642127e0f2d54c50ada2370409caf088001f98ceaf1571bac62cf3c13551e0a65ecd175c0c2
+    jest-matcher-utils: "npm:^28.0.0"
+    pretty-format: "npm:^28.0.0"
+  checksum: 7a6c210c88f264c2d3974dc6899afaa4648f9e722183b3430ffcf1ad9ab92d2939932ddbc6d1b2f2dfb84e2f0ed154b2b33cbacb41c24edc2c55285f15b6f485
   languageName: node
   linkType: hard
 
@@ -2349,10 +2349,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0, @types/node@npm:^17.0.42":
+"@types/node@npm:*, @types/node@npm:^17.0":
   version: 17.0.42
   resolution: "@types/node@npm:17.0.42"
   checksum: 1acc211c79de75174bf7fa2b6ac71dcef5896f99a28d434077f47e5f47a3dd37f169665aac70e0b73c81743cb8eb48dc4f47290646bbb5dee0c948c56ee224f4
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.0.0":
+  version: 18.0.0
+  resolution: "@types/node@npm:18.0.0"
+  checksum: 5d902615a9732fe86ff71edc04b6d35599b447a6fe3b572b12ea002a3460572f8e4d8990bf3983c2890e2335ea8625b78bc51ab542df492ef12e6dcd0da0865a
   languageName: node
   linkType: hard
 
@@ -2705,7 +2712,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.18.2"
     "@babel/preset-typescript": "npm:^7.17.12"
     "@babel/register": "npm:^7.17.7"
-    "@cloudflare/workers-types": "npm:^3.11.0"
+    "@cloudflare/workers-types": "npm:^3.13.0"
     "@emotion/babel-plugin": "npm:^11.9.2"
     "@emotion/eslint-plugin": "npm:^11.7.0"
     "@jest/globals": "npm:^28.1.1"
@@ -2717,10 +2724,10 @@ __metadata:
     "@types/babel__core": "npm:^7.1.19"
     "@types/babel__preset-env": "npm:^7.9.2"
     "@types/eslint": "npm:^8.4.3"
-    "@types/jest": "npm:^28.1.1"
+    "@types/jest": "npm:^28.1.2"
     "@types/lodash": "npm:^4.14.182"
     "@types/minimist": "npm:^1.2.2"
-    "@types/node": "npm:^17.0.42"
+    "@types/node": "npm:^18.0.0"
     "@types/prettier": "npm:^2.6.3"
     "@typescript-eslint/eslint-plugin": "npm:^5.28.0"
     "@typescript-eslint/parser": "npm:^5.28.0"
@@ -2730,7 +2737,7 @@ __metadata:
     chalk: "npm:^5.0.1"
     del: "npm:^6.1.1"
     envars: "npm:^0.4.0"
-    eslint: "npm:^8.17.0"
+    eslint: "npm:^8.18.0"
     eslint-config-prettier: "npm:^8.5.0"
     execa: "npm:^6.1.0"
     form-data: "npm:^4.0.0"
@@ -2742,12 +2749,12 @@ __metadata:
     lodash: "npm:^4.17.21"
     miniflare: "npm:^2.5.0"
     minimist: "npm:^1.2.6"
-    prettier: "npm:^2.7.0"
+    prettier: "npm:^2.7.1"
     pretty-bytes: "npm:^6.0.0"
     rollup: "npm:^2.75.6"
-    typescript: "npm:^4.7.3"
+    typescript: "npm:^4.7.4"
     whatwg-fetch: "npm:^3.6.2"
-    wrangler: "npm:^2.0.12"
+    wrangler: "npm:^2.0.14"
     zx: "npm:^7.0.0"
   languageName: unknown
   linkType: soft
@@ -3568,13 +3575,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff-sequences@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "diff-sequences@npm:27.5.1"
-  checksum: 0100294712df1efa53820b63220653a18ef3c695bd03f5889ae03475ac9dcf6299b0e0492407dae5b3f58dd16d6f0b225955431f631f234ce32230b923de9f6a
-  languageName: node
-  linkType: hard
-
 "diff-sequences@npm:^28.1.1":
   version: 28.1.1
   resolution: "diff-sequences@npm:28.1.1"
@@ -3999,9 +3999,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.17.0":
-  version: 8.17.0
-  resolution: "eslint@npm:8.17.0"
+"eslint@npm:^8.18.0":
+  version: 8.18.0
+  resolution: "eslint@npm:8.18.0"
   dependencies:
     "@eslint/eslintrc": "npm:^1.3.0"
     "@humanwhocodes/config-array": "npm:^0.9.2"
@@ -4040,7 +4040,7 @@ __metadata:
     v8-compile-cache: "npm:^2.0.3"
   bin:
     eslint: bin/eslint.js
-  checksum: c8175b66645ba379ddb27c67301f5ce66a1bfe62694511934d52c901992d13854d80ac29d624f8d4c848c5b77d7ddc231f85a7f340128379defc66bb9e481ece
+  checksum: dd57e8e10e51a23fd2bfee2f496a6ed3428f1e76ede29641382c7e2a530c5bfc02ade68fa5b23830c4652904560e716fe520ce65257f3e484163b305407f04d9
   languageName: node
   linkType: hard
 
@@ -5162,18 +5162,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "jest-diff@npm:27.5.1"
-  dependencies:
-    chalk: "npm:^4.0.0"
-    diff-sequences: "npm:^27.5.1"
-    jest-get-type: "npm:^27.5.1"
-    pretty-format: "npm:^27.5.1"
-  checksum: 9a6a623b2cbb37d54e16d6708e11f9d9f3002c2b499a0de136a915231a30f744045bf3f4e5ac081a0b2862fe208c35945062cb8a128221fef46521c80ee652b8
-  languageName: node
-  linkType: hard
-
 "jest-diff@npm:^28.1.1":
   version: 28.1.1
   resolution: "jest-diff@npm:28.1.1"
@@ -5248,13 +5236,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-get-type@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "jest-get-type@npm:27.5.1"
-  checksum: 9e7392ff79959e4dcedb30776f28e143ddd2b650de6ba8a9c5e348292c2675e69ac4d4bbd98a5c840016d6570b0716a96e0fcfeab06eb9edfcf7b705c0c7c8db
-  languageName: node
-  linkType: hard
-
 "jest-get-type@npm:^28.0.2":
   version: 28.0.2
   resolution: "jest-get-type@npm:28.0.2"
@@ -5295,19 +5276,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^27.0.0":
-  version: 27.5.1
-  resolution: "jest-matcher-utils@npm:27.5.1"
-  dependencies:
-    chalk: "npm:^4.0.0"
-    jest-diff: "npm:^27.5.1"
-    jest-get-type: "npm:^27.5.1"
-    pretty-format: "npm:^27.5.1"
-  checksum: af1abfe3b982367495fc16e7fd3083449449c3b6ced4be24c578ccb0c1d488ed02d415ad9283d61ceb1efd3750b56b789370624eae1a13f5b12ed2ec21f5a9b1
-  languageName: node
-  linkType: hard
-
-"jest-matcher-utils@npm:^28.1.1":
+"jest-matcher-utils@npm:^28.0.0, jest-matcher-utils@npm:^28.1.1":
   version: 28.1.1
   resolution: "jest-matcher-utils@npm:28.1.1"
   dependencies:
@@ -6563,12 +6532,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.7.0":
-  version: 2.7.0
-  resolution: "prettier@npm:2.7.0"
+"prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
   bin:
     prettier: bin-prettier.js
-  checksum: a325056460177731710a0e954eff4b57819c883f3bee34150765495d04b6b3ada8c76cac31c71862880141c165727fcd51ae76755246e3b6e64cbc2600bdee60
+  checksum: d2cd7adc83b4f3eb86ab665fa76c58fb3c60c879b37e6d858f71a9d97d2091d4c8a7fe92ad6a1dfa211832025e3660635df9c5e27b3ef79c99d431923bdf933b
   languageName: node
   linkType: hard
 
@@ -6579,18 +6548,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.0, pretty-format@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "pretty-format@npm:27.5.1"
-  dependencies:
-    ansi-regex: "npm:^5.0.1"
-    ansi-styles: "npm:^5.0.0"
-    react-is: "npm:^17.0.1"
-  checksum: 757aecacd25b827c5985ae3fe24fac52910b9f56898319f020f4278b788016a25b12bcbd40fe44c466ee68791f11670e2152969b87b292c410f8e7280ca99aef
-  languageName: node
-  linkType: hard
-
-"pretty-format@npm:^28.1.1":
+"pretty-format@npm:^28.0.0, pretty-format@npm:^28.1.1":
   version: 28.1.1
   resolution: "pretty-format@npm:28.1.1"
   dependencies:
@@ -6682,13 +6640,6 @@ __metadata:
   version: 6.1.1
   resolution: "quick-lru@npm:6.1.1"
   checksum: 905b489bd7c561438ea643cbee0cc14a4e8716781a522be37f530590903c215b2c314fcfa249290f293395d53d4d1207c922d6693c33a90d1ee247c8f1d94502
-  languageName: node
-  linkType: hard
-
-"react-is@npm:^17.0.1":
-  version: 17.0.2
-  resolution: "react-is@npm:17.0.2"
-  checksum: 24af7af3abd0bf94d4eb018a70db25fd4e23648eec7bb8b203bf59e24a715ac4eec8279939e15a4d90cbad19ed6be243a0f2c9aa0b1faec0a1c102d9c89ca3f9
   languageName: node
   linkType: hard
 
@@ -7598,23 +7549,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.7.3":
-  version: 4.7.3
-  resolution: "typescript@npm:4.7.3"
+"typescript@npm:^4.7.4":
+  version: 4.7.4
+  resolution: "typescript@npm:4.7.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 3fee70212e0b9bf2dfec38cc135d148bcda84b57935ccabcacec0ea660dd137efbc65e7a287dcaf33098764227973d2846beb610d3eb9d9e41c664a50f67bd5a
+  checksum: 0cec8f1c0fb0c6a9b437ee4e17819510eb294aad85291e940188fc4542a5554ffe1f73e4bc396c77d0a4d7dd1c17fd795634d50938fc3558e34f32d8a682118b
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^4.7.3#optional!builtin<compat/typescript>":
-  version: 4.7.3
-  resolution: "typescript@patch:typescript@npm%3A4.7.3#optional!builtin<compat/typescript>::version=4.7.3&hash=7ad353"
+"typescript@patch:typescript@npm%3A^4.7.4#optional!builtin<compat/typescript>":
+  version: 4.7.4
+  resolution: "typescript@patch:typescript@npm%3A4.7.4#optional!builtin<compat/typescript>::version=4.7.4&hash=7ad353"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 66f9b24affbb4548fa09f405d13fed11358daaa35faae1ce8e6c331159b8aeea22026cdb48db54827ac8b1dcc732fd85c979e4e79716b29a3ed963b53cac988e
+  checksum: 19bcd9153bbacaabed753b39fbd6adb5417690230b07db63f02e22588865b444b7504da9b9fcdcca5b4ac34be19904271a266bfa54d75fcfb0f5d699cb1e2314
   languageName: node
   linkType: hard
 
@@ -7792,9 +7743,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^2.0.12":
-  version: 2.0.12
-  resolution: "wrangler@npm:2.0.12"
+"wrangler@npm:^2.0.14":
+  version: 2.0.14
+  resolution: "wrangler@npm:2.0.14"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.1.1"
@@ -7814,7 +7765,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: d170cdacc36e3fade1e14485dfb4427294837cc1020a2e152c1ea09e52f6fe3025404bd6aba6f82b61ca0380d4cabe1cef35edb1c524e9a07fccbc26dceaf134
+  checksum: 52b85263d32950a760fda19760258af26f88cffe1579669efe5617147ea48960edff0c08a479956873605b3cce57caf7f6bfd960001a7df95e09a111d7d25d61
   languageName: node
   linkType: hard
 

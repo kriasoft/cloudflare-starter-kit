@@ -64,13 +64,12 @@ repository, install dependencies, open it in VSCode and start hacking:
 $ git clone https://github.com/kriasoft/cloudflare-starter-kit.git
 $ cd ./cloudflare-starter-kit
 $ yarn install
+$ yarn test
 ```
 
 Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) folders.
 
-**IMPORTANT**: Ensure that VSCode is using the workspace versions of TypeScript and ESLint.
-
-![](https://files.tarkus.me/typescript-workspace.png)
+**IMPORTANT**: Ensure that VSCode is using the [workspace version of TypeScript](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-newer-typescript-versions).
 
 ## Scripts
 
@@ -113,11 +112,13 @@ $ yarn api:deploy [--env #0]
 $ yarn site:deploy [--env #0]
 ```
 
+Where `--env #0` is the target deployment environment, e.g. `--env=prod` or `--env=test`.
+
 ## How to View Logs
 
 ```
-$ yarn api:cf tail --format=pretty
-$ yarn site:cf tail --format=pretty
+$ yarn api:cf tail [--env #0]
+$ yarn site:cf tail [--env #0]
 ```
 
 ## How to Update
