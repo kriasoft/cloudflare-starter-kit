@@ -4513,6 +4513,7 @@ __metadata:
     pretty-bytes: "npm:^6.0.0"
     rollup: "npm:^2.75.6"
     typescript: "npm:^4.7.4"
+    vite: "npm:^2.9.12"
     whatwg-fetch: "npm:^3.6.2"
     wrangler: "npm:^2.0.14"
     zx: "npm:^7.0.0"
