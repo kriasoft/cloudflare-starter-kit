@@ -3,11 +3,12 @@
 
 import * as React from "react";
 import { createRoot } from "react-dom/client";
+import { App } from "./core/index.js";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <React.StrictMode>
-    <p>Welcome to Cloudflare Starer Kit!</p>
+    <App />
   </React.StrictMode>
 );

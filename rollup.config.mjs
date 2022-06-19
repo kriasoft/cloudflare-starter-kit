@@ -47,7 +47,7 @@ export default globbySync(["*/wrangler.toml"])
             await del(`${name}/dist/**`);
           },
           generateBundle(options, bundle) {
-            if (!process.argv.includes("--silent")) {
+            if (!process.argv.includes("--silent") && !this.meta.watchMode) {
               const file = basename(options.file);
               const size = bundle[file].code.length;
               const prettySize = chalk.green(prettyBytes(size));
