@@ -84,7 +84,7 @@ Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) 
 
 Find below the minimal boilerplate for creating a new CF Worker script using TypeScript with ESM syntax:
 
-#### `example/index.ts`
+#### `example/index.ts` — CF Worker script
 
 ```ts
 export default {
@@ -94,7 +94,7 @@ export default {
 } as ExportedHandler<Env>;
 ```
 
-#### `example/index.test.ts`
+#### `example/index.test.ts` — unit test powered by Miniflare
 
 ```ts
 import { jest } from "@jest/globals";
@@ -103,33 +103,15 @@ import worker from "./index.js";
 test("GET /", async () => {
   const env = getMiniflareBindings();
   const req = new Request(`https://${env.APP_HOSTNAME}/`);
-  const res = await worker.fetch?.(req, env, createContext());
+  const res = await worker.fetch?.(req, env, {});
   const body = await res?.text();
 
   expect(res?.status).toEqual(200);
   expect(body).toEqual(`Hello world!`);
 });
-
-function createContext() {
-  return {
-    passThroughOnException: jest.fn(),
-    waitUntil: jest.fn(),
-  };
-}
 ```
 
-#### `example/global.d.ts`
-
-```ts
-declare type Env = {
-  APP_ENV: "local" | "test" | "prod";
-  APP_HOSTNAME: string;
-};
-
-declare function getMiniflareBindings<Bindings = Env>(): Bindings;
-```
-
-#### `example/wrangler.toml`
+#### `example/wrangler.toml` — deployment configuration
 
 ```toml
 name = "example"
@@ -147,44 +129,14 @@ type = "ESModule"
 globs = ["**/*.js"]
 ```
 
-#### `example/package.json`
-
-```json
-{
-  "name": "example",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "devDependencies": {
-    "@cloudflare/workers-types": "^3.13.0",
-    "@jest/globals": "^28.1.1",
-    "@types/jest": "^28.1.2",
-    "typescript": "^4.7.4"
-  }
-}
-```
-
-#### `example/tsconfig.json`
-
-```json
-{
-  "extends": "../tsconfig.base.json",
-  "compilerOptions": {
-    "composite": true,
-    "lib": ["ESNext"],
-    "types": ["@cloudflare/workers-types", "jest"],
-    "outDir": "./dist"
-  },
-  "include": ["**/*.ts"],
-  "exclude": ["dist/**/*"]
-}
-```
-
-Also visit [Cloudflare Workers Examples](https://developers.cloudflare.com/workers/examples/) directory for more sophisticated examples.
+Plus [`package.json`](./site/package.json), [`tsconfig.json`](./site/tsconfig.json),
+and [`global.d.ts`](./site/global.d.ts) files configuring TypeScript for the workspace.
 
 Note that `$APP_HOSTNAME` and `$CLOUDFLARE_ACCOUNT_ID` placeholders in the
 example above will be automatically replaced with values from [`*.env`](./env/)
 files for the target environment during local testing or deployment.
+
+For more sophisticated examples visit [Cloudflare Workers Examples](https://developers.cloudflare.com/workers/examples/) directory.
 
 ## How to Deploy
 
