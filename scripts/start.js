@@ -12,7 +12,7 @@ const { default: apiConfig } = await import("../rollup.config.mjs");
 
 // Configure the Cloudflare Workers server
 const mf = new Miniflare({
-  scriptPath: "api/dist/index.js",
+  scriptPath: "dist/api/index.js",
   modules: true,
   bindings: envars.config(),
   sourceMap: true,

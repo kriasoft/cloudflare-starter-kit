@@ -1,13 +1,9 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "NodeNext",
     "lib": ["ESNext"],
     "types": ["@cloudflare/workers-types", "jest"],
-    "outDir": "./dist"
+    "outDir": "../dist/api"
   },
-  "include": ["**/*.ts"],
-  "exclude": ["dist/**/*"]
+  "include": ["**/*.ts"]
 }

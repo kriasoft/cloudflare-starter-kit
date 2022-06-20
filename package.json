@@ -13,7 +13,6 @@
     "postinstall": "husky install && node ./scripts/postinstall.js",
     "start": "yarn node --experimental-vm-modules $(yarn bin zx) ./scripts/start.js",
     "cf": "zx ./scripts/cf.js",
-    "tsc": "yarn workspaces foreach run tsc",
     "lint": "eslint --cache --report-unused-disable-directives .",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "build": "yarn workspaces foreach run build",
@@ -21,12 +20,14 @@
     "app:start": "yarn workspace app run start",
     "app:build": "yarn workspace app run build",
     "app:preview": "yarn workspace app run preview",
-    "api:build": "rollup -c --environment TARGET:api,BABEL_ENV:production",
-    "api:deploy": "yarn workspace api build && zx ./scripts/cf.js api publish",
-    "api:cf": "zx ./scripts/cf.js api",
-    "site:build": "rollup -c --environment TARGET:site,BABEL_ENV:production",
-    "site:deploy": "yarn workspaces foreach -tR --from '{app,site}' run build && zx ./scripts/cf.js site publish",
-    "site:cf": "zx ./scripts/cf.js site"
+    "api:cf": "yarn workspace api run cf",
+    "api:build": "yarn workspace api run build",
+    "api:deploy": "yarn workspace api run build && yarn workspace api run deploy",
+    "site:cf": "yarn workspace site run cf",
+    "site:build": "yarn workspace site run build",
+    "site:deploy": "yarn workspaces foreach -tR --from '{app,site}' run build && yarn workspace site run deploy",
+    "g:rollup": "rollup",
+    "t:tsc": "gsc"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -142,7 +143,7 @@
       "/.git",
       "/.husky",
       "/.yarn",
-      "/*/dist"
+      "/dist"
     ]
   }
 }

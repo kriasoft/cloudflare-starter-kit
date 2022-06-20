@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn site:build",
-    "deploy": "yarn site:deploy"
+    "cf": "yarn run --top-level zx ../scripts/cf.js ${npm_package_name}",
+    "build": "yarn run --top-level rollup --config ../rollup.config.mjs --environment TARGET:${npm_package_name},BABEL_ENV:production",
+    "deploy": "yarn cf publish"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.2.0"
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^3.13.0",
     "@jest/globals": "^28.1.1",
-    "@types/jest": "^28.1.2"
+    "@types/jest": "^28.1.2",
+    "typescript": "^4.7.4"
   }
 }

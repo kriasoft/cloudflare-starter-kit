@@ -31,11 +31,14 @@ jobs:
       # Analyze code for potential problems
       - run: yarn prettier --check .
       - run: yarn lint
-      - run: yarn tsc
+      - run: yarn tsc --build
 
-      # Test
-      - run: yarn build
+      # Compile and test
+      - run: yarn workspace app build
+      - run: yarn workspace api build
+      - run: yarn workspace site build
       - run: yarn test
 
       # Build and deploy
-      # - run: yarn deploy --env=test --version=$VERSION
+      # - run: yarn workspace api deploy --env=test --version=$VERSION
+      # - run: yarn workspace site deploy --env=test --version=$VERSION

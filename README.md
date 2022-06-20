@@ -91,22 +91,21 @@ export default {
   async fetch(req, env, ctx) {
     return new Response(`Hello world!`, { status: 200 });
   },
-} as ExportedHandler<Env>;
+} as Required<Pick<ExportedHandler<Env>, "fetch">>;
 ```
 
 #### `example/index.test.ts` — unit test powered by Miniflare
 
 ```ts
-import { jest } from "@jest/globals";
 import worker from "./index.js";
 
 test("GET /", async () => {
   const env = getMiniflareBindings();
   const req = new Request(`https://${env.APP_HOSTNAME}/`);
-  const res = await worker.fetch?.(req, env, {});
-  const body = await res?.text();
+  const res = await worker.fetch(req, env, {});
+  const body = await res.text();
 
-  expect(res?.status).toEqual(200);
+  expect(res.status).toEqual(200);
   expect(body).toEqual(`Hello world!`);
 });
 ```

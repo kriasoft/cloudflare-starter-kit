@@ -2856,6 +2856,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^3.13.0"
     "@jest/globals": "npm:^28.1.1"
     "@types/jest": "npm:^28.1.2"
+    typescript: "npm:^4.7.4"
     web-auth-library: "npm:^0.4.1"
   languageName: unknown
   linkType: soft
@@ -7539,6 +7540,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^3.13.0"
     "@jest/globals": "npm:^28.1.1"
     "@types/jest": "npm:^28.1.2"
+    typescript: "npm:^4.7.4"
   languageName: unknown
   linkType: soft
 

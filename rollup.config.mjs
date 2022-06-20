@@ -6,56 +6,51 @@ import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import chalk from "chalk";
-import del from "del";
-import { globbySync } from "globby";
-import { basename, dirname } from "node:path";
 import prettyBytes from "pretty-bytes";
+import { $, fs, path } from "zx";
 
-export default globbySync(["*/wrangler.toml"])
-  .map((file) => dirname(file))
-  .filter((name) => name === process.env.TARGET || !process.env.TARGET)
-  .map(
-    /**
-     * Rollup configuration
-     * https://rollupjs.org/guide/
-     *
-     * @return {import("rollup").RollupOptions}
-     */
-    (name) => ({
-      input: `./${name}/index.ts`,
-      output: {
-        name,
-        file: `./${name}/dist/index.js`,
-        format: "es",
-        minifyInternalExports: true,
-        generatedCode: "es2015",
+/**
+ * Rollup configuration for compiling and bundling CF Workers scripts.
+ *
+ * @see https://rollupjs.org/guide/
+ * @return {import("rollup").RollupOptions}
+ */
+export default {
+  input: `./index.ts`,
+  output: {
+    name: $.env.TARGET,
+    file: `../dist/${$.env.TARGET}/index.js`,
+    format: "es",
+    minifyInternalExports: true,
+    generatedCode: "es2015",
+    sourcemap: true,
+  },
+  plugins: [
+    nodeResolve({
+      extensions: [".ts", ".tsx", ".mjs", ".js", ".json", ".node"],
+      browser: true,
+    }),
+    commonjs(),
+    json(),
+    babel({
+      configFile: path.join($.env.PROJECT_CWD, "babel.config.cjs"),
+      extensions: [".js", ".mjs", ".ts", ".tsx"],
+      babelHelpers: "bundled",
+    }),
+    {
+      name: "custom",
+      async buildStart() {
+        await fs.emptyDir(`../dist/${$.env.TARGET}`);
       },
-      plugins: [
-        nodeResolve({
-          extensions: [".ts", ".tsx", ".mjs", ".js", ".json", ".node"],
-          browser: true,
-        }),
-        commonjs(),
-        json(),
-        babel({
-          extensions: [".js", ".mjs", ".ts", ".tsx"],
-          babelHelpers: "bundled",
-        }),
-        {
-          name: "custom",
-          async buildStart() {
-            await del(`${name}/dist/**`);
-          },
-          generateBundle(options, bundle) {
-            if (!process.argv.includes("--silent") && !this.meta.watchMode) {
-              const file = basename(options.file);
-              const size = bundle[file].code.length;
-              const prettySize = chalk.green(prettyBytes(size));
-              console.log(`${chalk.cyan("file size:")} ${prettySize}`);
-            }
-          },
-        },
-      ],
-      external: ["__STATIC_CONTENT_MANIFEST"],
-    })
-  );
+      generateBundle(options, bundle) {
+        if (!process.argv.includes("--silent") && !this.meta.watchMode) {
+          const file = path.basename(options.file);
+          const size = bundle[file].code.length;
+          const prettySize = chalk.green(prettyBytes(size));
+          console.log(`${chalk.cyan("file size:")} ${prettySize}`);
+        }
+      },
+    },
+  ],
+  external: ["__STATIC_CONTENT_MANIFEST"],
+};
