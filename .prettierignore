@@ -1,8 +1,6 @@
 /.cache
 /.husky
 /.yarn
-/*/dist/
-/public/js/vendor
-.pnp.*
-/tsconfig.json
+/dist/
+/.pnp.*
 /tsconfig.base.json

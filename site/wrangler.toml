@@ -24,4 +24,4 @@ type = "ESModule"
 globs = ["**/*.js"]
 
 [site]
-bucket = "../../app/dist"
+bucket = "../app"

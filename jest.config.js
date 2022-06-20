@@ -18,7 +18,7 @@ export default {
   testEnvironmentOptions: {
     bindings: envars.config(),
     kvNamespaces: [],
-    sitePath: "app/dist",
+    sitePath: "dist/app",
     modules: true,
   },
 
@@ -28,7 +28,7 @@ export default {
     "<rootDir>/.husky/",
     "<rootDir>/.vscode/",
     "<rootDir>/.yarn/",
-    "<rootDir>/*/dist/",
+    "<rootDir>/dist/",
     "<rootDir>/scripts/",
   ],
 
@@ -48,7 +48,7 @@ export default {
     __STATIC_CONTENT_MANIFEST: "<rootDir>/site/manifest.ts",
   },
 
-  modulePathIgnorePatterns: ["<rootDir>/*/dist/"],
+  modulePathIgnorePatterns: ["<rootDir>/dist/"],
 
   transform: {
     "\\.ts$": "babel-jest",

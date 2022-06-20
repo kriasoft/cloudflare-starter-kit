@@ -2,36 +2,21 @@
 /* SPDX-License-Identifier: MIT */
 
 import envars from "envars";
-import { execa as $ } from "execa";
-import { argv, fs, globby, path } from "zx";
+import { execa } from "execa";
+import { $, argv, fs } from "zx";
 
 const envName = argv.env ?? "test";
 const version = typeof argv.version === "string" && argv.version;
-const env = process.env;
 
 // Load environment variables from the `/env/.{envName}.env` file
-envars.config({ env: envName });
-
-// Change the current working directory to the target workspace
-const configFiles = await globby("*/wrangler.toml");
-const workers = configFiles.map(path.dirname);
-let [, , , worker, ...args] = process.argv;
-
-if (!worker) {
-  console.error("Usage example:\n\n  $ yarn cf <worker> [...args]\n");
-  process.exit(1);
-}
-
-if (!workers.includes(worker)) {
-  console.error(`Not found ${worker}/wrangler.toml`);
-  process.exit(1);
-}
+envars.config({ env: envName, cwd: `${$.env.PROJECT_CWD}/env` });
 
 // Inject environment variables into the `wrangler.toml` file
-const configFile = `${worker}/dist/wrangler.toml`;
-const configTemplate = `${worker}/wrangler.toml`;
+let [, , , worker, ...args] = process.argv;
+const configFile = `dist/${worker}/wrangler.toml`;
+const configTemplate = `wrangler.toml`;
 const config = await fs.readFile(configTemplate, "utf-8");
-await fs.writeFile(configFile, replaceEnvVars(config), "utf-8");
+await fs.writeFile(`../${configFile}`, replaceEnvVars(config), "utf-8");
 
 // Remove --env/-e and --version arguments
 args = args
@@ -47,13 +32,14 @@ args = args
 const secret = args.find((_, i) => args[i - 2] === "secret" && args[i - 1] === "put"); // prettier-ignore
 
 // Launch Wrangler CLI
-const p = $("yarn", ["wrangler", "-c", configFile, ...args], {
-  stdio: secret && env[secret] ? ["pipe", "inherit", "inherit"] : "inherit",
+const p = execa("yarn", ["wrangler", "-c", configFile, ...args], {
+  stdio: secret && $.env[secret] ? ["pipe", "inherit", "inherit"] : "inherit",
+  cwd: $.env.PROJECT_CWD,
 });
 
 // Write secret values to stdin (in order to avoid typing them)
-if (secret && env[secret] && p.stdin) {
-  p.stdin.write(env[args[2]]);
+if (secret && $.env[secret] && p.stdin) {
+  p.stdin.write($.env[args[2]]);
   p.stdin.end();
 }
 
@@ -67,7 +53,7 @@ function replaceEnvVars(/** @type {string} */ config) {
   // Replace placeholders with the actual values for the target environment
   config = config.replace(
     /(\$[[A-Z0-9_]+)/gm,
-    (match, p1) => env[p1.substring(1)] ?? ""
+    (match, p1) => $.env[p1.substring(1)] ?? ""
   );
 
   // Optionally, append the target environment name to the worker's name

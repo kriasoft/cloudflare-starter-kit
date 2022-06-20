@@ -19,7 +19,7 @@ export default {
     }
 
     // Serve web application assets bundled into
-    // the worker script from the `app/dist` folder
+    // the worker script from the `dist/app` folder
     return await getAssetFromKV(
       {
         request: req,
@@ -34,4 +34,4 @@ export default {
       }
     );
   },
-} as ExportedHandler<Env>;
+} as Required<Pick<ExportedHandler<Env>, "fetch">>;

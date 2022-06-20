@@ -1,23 +1,21 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-import { jest } from "@jest/globals";
 import worker from "./index.js";
 
 test("GET /api/people/1", async () => {
   const env = await getMiniflareBindings();
-  const ctx = { passThroughOnException: jest.fn(), waitUntil: jest.fn() };
 
   const req = new Request(`https://${env.APP_HOSTNAME}/api/people/1`, {
     headers: { "accept-type": "application/json" },
   });
 
-  const res = await worker.fetch?.(req, env, ctx);
+  const res = await worker.fetch(req, env, {} as ExecutionContext);
 
   expect({
-    status: res?.status,
-    statusText: res?.statusText,
-    url: res?.url,
+    status: res.status,
+    statusText: res.statusText,
+    url: res.url,
   }).toMatchInlineSnapshot(`
     Object {
       "status": 200,

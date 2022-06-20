@@ -10,6 +10,10 @@ import { defineConfig } from "vite";
  */
 export default defineConfig({
   cacheDir: "../.cache/app/vite",
+  build: {
+    outDir: "../dist/app",
+    emptyOutDir: true,
+  },
   plugins: [
     // https://github.com/vitejs/vite/tree/main/packages/plugin-react
     react({

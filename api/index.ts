@@ -38,4 +38,4 @@ export default {
       );
     }
   },
-} as ExportedHandler<Env>;
+} as Required<Pick<ExportedHandler<Env>, "fetch">>;
