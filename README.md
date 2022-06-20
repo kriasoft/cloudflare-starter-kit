@@ -28,17 +28,16 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Directory Structure
 
-`├──`[`.github`](.github) — GitHub configuration including CI/CD workflows<br>
-`├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>
+`├──`[`.github/workflows`](./.github/workflows/) — CI/CD workflows powered by [GitHub Actions](https://github.com/features/actions)<br>
+`├──`[`.vscode`](.vscode) — [VSCode](https://code.visualstudio.com/) settings including code snippets, recommended extensions etc.<br>
+`├──`[`env`](./env) — Settings for `local` (dev), `test` (staging/QA), and `prod` (production) environments<br>
 `├──`[`api`](./api) — Cloudflare Worker script for handling API requests<br>
 `├──`[`app`](./app) — Web application front-end powered by [Vite](https://vitejs.dev/) and [React.js](https://reactjs.org/)<br>
-`├──`[`env`](./env) — environment variables for the local (dev), test (QA), and production<br>
+`├──`[`site`](./site) — [Cloudflare Workers](https://workers.cloudflare.com/) script for serving static websites (reverse proxy)<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
-`├──`[`site`](./site) — Cloudflare Worker script for serving a static website<br>
-`├──`[`babel.config.cjs`](./babel.config.cjs) — Babel configuration<br>
-`├──`[`package.json`](./project.json) — npm dependencies and Yarn scripts<br>
-`├──`[`rollup.config.mjs`](./rollup.config.mjs) — code bundling configuration for Rollup<br>
-`└──`[`tsconfig.base.json`](./tsconfig.base.json) — TypeScript configuration<br>
+`├──`[`package.json`](./project.json) — The list of [NPM](https://www.npmjs.com/) dependencies and [Yarn](https://yarnpkg.com/) workspaces<br>
+`├──`[`rollup.config.mjs`](./rollup.config.mjs) — [Rollup](https://rollupjs.org/) configuration for compiling and bundling [CF Workers](https://workers.cloudflare.com/)<br>
+`└──`[`tsconfig.base.json`](./tsconfig.base.json) — [TypeScript](https://www.typescriptlang.org/) configuration shared across packages/workspaces<br>
 
 ## Tech Stack
 
@@ -51,7 +50,7 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/) v16 or newer, [Yarn](https://yarnpkg.com/) package manager
+- [Node.js](https://nodejs.org/) `v16.15.0` or newer, [Yarn](https://yarnpkg.com/) package manager
 - [VS Code](https://code.visualstudio.com/) editor with [recommended extensions](.vscode/extensions.json)
 
 ## Getting Started
@@ -64,6 +63,7 @@ $ git clone https://github.com/kriasoft/cloudflare-starter-kit.git
 $ cd ./cloudflare-starter-kit
 $ yarn install
 $ yarn start
+$ yarn test
 ```
 
 Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) folders.
@@ -72,46 +72,143 @@ Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) 
 
 ## Scripts
 
-- `yarn start` - Launches web application
-- `yarn lint` — Validate the code using ESLint
-- `yarn tsc` — Validate the code using TypeScript compiler
-- `yarn test` — Run unit tests with Jest and Supertest
-- `yarn build` — Compiles and bundles worker scripts into the `dist` folder
-- `yarn deploy` — Deploys the worker scripts to Cloudflare
-- `yarn cf <workspace>` — Wrangler CLI wrapper
+- **`yarn start`** - Launches web application on [`http://localhost:3000/`](http://localhost:3000/)
+- **`yarn lint`** — Validates the code using [ESLint](https://eslint.org/)
+- **`yarn tsc`** — Validates the code using [TypeScript](https://www.typescriptlang.org/) compiler
+- **`yarn test`** — Runs unit tests with [Jest](https://jestjs.io/), [Miniflare](https://miniflare.dev/), and [Supertest](https://github.com/visionmedia/supertest)
+- **`yarn build`** — Compiles and bundles worker scripts into the `./dist` folder(s)
+- **`yarn deploy`** — Deploys the app to [Cloudflare Workers](https://developers.cloudflare.com/workers/) / [GCF](https://cloud.google.com/functions)
+- **`yarn cf <workspace>`** — [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/get-started/) wrapper with support of [`*.env`](./env) files
+
+## How to Create a CF Worker
+
+Find below the minimal boilerplate for creating a new CF Worker script using TypeScript with ESM syntax:
+
+#### `example/index.ts`
+
+```ts
+export default {
+  async fetch(req, env, ctx) {
+    return new Response(`Hello world!`, { status: 200 });
+  },
+} as ExportedHandler<Env>;
+```
+
+#### `example/index.test.ts`
+
+```ts
+import { jest } from "@jest/globals";
+import worker from "./index.js";
+
+test("GET /", async () => {
+  const env = getMiniflareBindings();
+  const req = new Request(`https://${env.APP_HOSTNAME}/`);
+  const res = await worker.fetch?.(req, env, createContext());
+  const body = await res?.text();
+
+  expect(res?.status).toEqual(200);
+  expect(body).toEqual(`Hello world!`);
+});
+
+function createContext() {
+  return {
+    passThroughOnException: jest.fn(),
+    waitUntil: jest.fn(),
+  };
+}
+```
+
+#### `example/global.d.ts`
+
+```ts
+declare type Env = {
+  APP_ENV: "local" | "test" | "prod";
+  APP_HOSTNAME: string;
+};
+
+declare function getMiniflareBindings<Bindings = Env>(): Bindings;
+```
+
+#### `example/wrangler.toml`
+
+```toml
+name = "example"
+main = "index.js"
+compatibility_date = "2022-04-18"
+account_id = "$CLOUDFLARE_ACCOUNT_ID"
+route = "$APP_HOSTNAME/*"
+
+[vars]
+APP_ENV = "$APP_ENV"
+APP_HOSTNAME = "$APP_HOSTNAME"
+
+[[rules]]
+type = "ESModule"
+globs = ["**/*.js"]
+```
+
+#### `example/package.json`
+
+```json
+{
+  "name": "example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.13.0",
+    "@jest/globals": "^28.1.1",
+    "@types/jest": "^28.1.2",
+    "typescript": "^4.7.4"
+  }
+}
+```
+
+#### `example/tsconfig.json`
+
+```json
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ESNext"],
+    "types": ["@cloudflare/workers-types", "jest"],
+    "outDir": "./dist"
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["dist/**/*"]
+}
+```
+
+Also visit [Cloudflare Workers Examples](https://developers.cloudflare.com/workers/examples/) directory for more sophisticated examples.
+
+Note that `$APP_HOSTNAME` and `$CLOUDFLARE_ACCOUNT_ID` placeholders in the
+example above will be automatically replaced with values from [`*.env`](./env/)
+files for the target environment during local testing or deployment.
 
 ## How to Deploy
 
-Ensure that Cloudflare account credentials and all the environment variables
-found in the [`./env`](./env) folder are up-to-date. Then push the required
-secrets to Cloudflare Workers, for example:
+The deployments are handled automatically by [GitHub Actions](https://github.com/features/actions)
+(see [`.github/workflows`](.github/workflows/)) whenever a new commit lands onto
+one of these branches:
 
+- **`main`** — Deploys the app to [`https://test.example.com`](https://test.example.com/) (test/QA)
+- **`release`** — Deploys the app to [`https://example.com`](https://example.com/) (production)
+
+Alternatively, you can deploy the app manually by ensuring the all the
+required environment variables found in the [`*.env`](./env/) files are
+up-to-date (e.g. `CLOUDFLARE_API_TOKEN`), then running `yarn deploy [--env #0]`,
+specifying the target deployment area via `--env` flag, e.g. `--env=test`
+(default) or `--env=prod`.
+
+You can also deploy packages (workspaces) individually, for example:
+
+```bash
+$ yarn api:deploy --env=prod
+$ yarn site:deploy --env=prod
 ```
-$ yarn api:cf secret put GOOGLE_CLOUD_CREDENTIALS [--env #0]
-```
-
-Finally, build and deploy the app:
-
-```
-$ yarn deploy [--env #0]
-```
-
-Where `--env` can be one of the supported environment names:
-
-- **`local`**: http://localhost:3000 (local development and unit testing)
-- **`test`**: https://test.example.com (staging/QA)
-- **`prod`**: https://example.com (production)
 
 <p align="center"><img src="https://files.tarkus.me/cloudflare-workers-deploy.svg" /></p>
-
-Alternatively, build and deploy CF workers individually:
-
-```
-$ yarn api:deploy [--env #0]
-$ yarn site:deploy [--env #0]
-```
-
-Where `--env #0` is the target deployment environment, e.g. `--env=prod` or `--env=test`.
 
 ## How to View Logs
 
