@@ -20,7 +20,7 @@ export const CurrentUser = atom<User | null | undefined>({
  *     const me = useCurrentUser();
  *     // => { uid: "xxx", email: "me@example.com", ... }
  *     // => Or, `null` when not authenticated
- *     // => Or, `undefined` when
+ *     // => Or, `undefined` when not initialized
  *   }
  */
 export function useCurrentUser() {

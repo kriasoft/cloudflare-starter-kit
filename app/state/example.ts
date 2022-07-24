@@ -2,17 +2,14 @@
 /* SPDX-License-Identifier: MIT */
 
 import { selectorFamily, useRecoilValue } from "recoil";
-import { CurrentUser } from "./user.js";
 
 export const Person = selectorFamily<Person, number | string>({
   key: "Person",
   get(id) {
-    return async function ({ get }): Promise<Person> {
-      const me = get(CurrentUser);
-      const headers = new Headers();
-      const idToken = await me?.getIdToken();
-      if (idToken) headers.set("Authorization", `Bearer ${idToken}`);
-      const res = await fetch(`/api/people/${id}`, { headers });
+    return async function (): Promise<Person> {
+      // const me = get(CurrentUser);
+      // const idToken = await me?.getIdToken();
+      const res = await fetch(`/api/people/${id}`);
 
       if (!res.ok) {
         const err = await res.json();

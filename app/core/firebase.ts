@@ -4,7 +4,7 @@
 // -----------------------------------------------------------------------------
 // NOTE: This file is intended to be loaded asynchronously, on-demand
 //       in order not to affect the initial page rendering.
-//       See `useFirebase()` React hook found in `/state/Firebase.ts`.
+//       See `useFirebase()` React hook found in `/state/firebase.ts`.
 // -----------------------------------------------------------------------------
 
 import { initializeApp } from "firebase/app";
