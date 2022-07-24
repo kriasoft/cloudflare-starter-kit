@@ -1,36 +1,23 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
+import { CssBaseline, Toolbar } from "@mui/material";
 import * as React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "../routes/Home.js";
+import { AppToolbar } from "./Toolbar.js";
 
 export function App(): JSX.Element {
-  const [data, setData] = React.useState();
-
-  React.useEffect(() => {
-    (async () => {
-      const res = await fetch("/api/people/1");
-      const body = await res.json();
-      setData(body);
-    })();
-  }, []);
-
   return (
     <React.Fragment>
-      <h2>Welcome to Cloudflare Starter Kit!</h2>
+      <CssBaseline />
 
-      <p>
-        <a href="https://github.com/kriasoft/cloudflare-starter-kit">
-          https://github.com/kriasoft/cloudflare-starter-kit
-        </a>
-      </p>
+      <AppToolbar />
+      <Toolbar />
 
-      <p>
-        Fetching <code>/api/people/1</code> (as an example):
-      </p>
-
-      <pre>
-        <code>{data && JSON.stringify(data, null, "  ")}</code>
-      </pre>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </React.Fragment>
   );
 }
