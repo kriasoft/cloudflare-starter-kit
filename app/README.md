@@ -6,11 +6,27 @@ Web application package powered by [Vite](https://vitejs.dev/),
 
 ### How to Access the Logged-In User?
 
-```ts
-import { useCurrentUser } from "../state/user";
+```tsx
+import { useCurrentUser } from "../state/firebase.js";
 
 function Example(): JSX.Element {
   const me = useCurrentUser();
-  return <p>Hello, {me?.name}!</p>;
+  return <Box>Hello, {me?.name}!</Box>;
+}
+```
+
+### How to Sign In / Sign Out?
+
+```tsx
+import { useAuth } from "../state/firebase.js";
+
+function Example(): JSX.Element {
+  const auth = useAuth();
+  return (
+    <Box>
+      <Button onClick={auth.signIn}>Sign In</Button>
+      <Button onClick={auth.signOut}>Sign Out</Button>
+    </Box>
+  );
 }
 ```

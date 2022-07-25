@@ -23,7 +23,3 @@ export function signIn(): ReturnType<typeof signInWithPopup> {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 }
-
-export function signOut() {
-  return auth.signOut();
-}
