@@ -1,7 +1,7 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-declare type Env = {
+declare type Bindings = {
   APP_ENV: "local" | "test" | "prod";
   APP_NAME: string;
   APP_HOSTNAME: string;
@@ -9,4 +9,8 @@ declare type Env = {
   __STATIC_CONTENT: Record<string, string>;
 };
 
-declare function getMiniflareBindings<Bindings = Env>(): Bindings;
+declare type Env = {
+  Bindings: Bindings;
+};
+
+declare function getMiniflareBindings<T = Bindings>(): T;

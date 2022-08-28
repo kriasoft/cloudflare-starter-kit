@@ -3726,6 +3726,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^3.14.1"
     "@jest/globals": "npm:^29.0.1"
     "@types/jest": "npm:^28.1.8"
+    hono: "npm:^2.1.2"
     typescript: "npm:^4.8.2"
     web-auth-library: "npm:^0.4.1"
   languageName: unknown
@@ -4574,6 +4575,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^3.14.1"
     "@jest/globals": "npm:^29.0.1"
     "@types/jest": "npm:^28.1.8"
+    hono: "npm:^2.1.2"
     typescript: "npm:^4.8.2"
   languageName: unknown
   linkType: soft
@@ -5894,6 +5896,13 @@ __metadata:
   dependencies:
     react-is: "npm:^16.7.0"
   checksum: fb03b1e426696928dfbae467baf12bdf123fccb051d92fd677c4f290d43dea52ebe7a555c3afc6f3babc657961df2ab50a70bb13739be72904f893598b98b8d7
+  languageName: node
+  linkType: hard
+
+"hono@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "hono@npm:2.1.2"
+  checksum: f2f89cb1e610610255b3d2094ce618f634ed33304b51dbb1a4a6985a6f2e6c115e8972d0a82b1b5ced0272a1c55c2eede5e6c4b4d1d4401a51c2bb76db3106c3
   languageName: node
   linkType: hard
 
