@@ -28,7 +28,7 @@ args = args
   })
   .filter(Boolean);
 
-// Check if there is a secret name, e.g. `yarn cf site secret put AUTH_KEY`
+// Check if there is a secret name, e.g. `yarn cf edge secret put AUTH_KEY`
 const secret = args.find((_, i) => args[i - 2] === "secret" && args[i - 1] === "put"); // prettier-ignore
 
 // Launch Wrangler CLI

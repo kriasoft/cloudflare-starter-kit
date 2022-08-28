@@ -5,9 +5,8 @@ import { babel } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import chalk from "chalk";
 import prettyBytes from "pretty-bytes";
-import { $, fs, path } from "zx";
+import { $, chalk, fs, path } from "zx";
 
 /**
  * Rollup configuration for compiling and bundling CF Workers scripts.
