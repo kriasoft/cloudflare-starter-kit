@@ -6,11 +6,15 @@ declare module "__STATIC_CONTENT_MANIFEST" {
   export default JSON;
 }
 
-declare type Env = {
+declare type Bindings = {
   APP_ENV: "local" | "test" | "prod";
   APP_NAME: string;
   APP_HOSTNAME: string;
   __STATIC_CONTENT: Record<string, string>;
 };
 
-declare function getMiniflareBindings<Bindings = Env>(): Bindings;
+declare type Env = {
+  Bindings: Bindings;
+};
+
+declare function getMiniflareBindings<T = Bindings>(): T;

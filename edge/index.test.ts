@@ -1,3 +1,6 @@
+/* SPDX-FileCopyrightText: 2020-present Kriasoft */
+/* SPDX-License-Identifier: MIT */
+
 import worker from "./index.js";
 
 test("GET /", async () => {

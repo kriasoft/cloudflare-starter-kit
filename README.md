@@ -41,12 +41,12 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Tech Stack
 
-[Cloudflare Workers](https://workers.cloudflare.com/), [Miniflare](https://miniflare.dev/),
-[Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/), [Vite](https://vitejs.dev/),
-[TypeScript](https://www.typescriptlang.org/), [Babel](https://babeljs.io/),
-[ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
-[Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/),
-[Rollup](https://rollupjs.org/).
+- [TypeScript](https://www.typescriptlang.org/), [Cloudflare Workers](https://workers.cloudflare.com/),
+  [Hono](https://honojs.dev/)
+- [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org/),
+  [Miniflare](https://miniflare.dev/), [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/),
+  [ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
+  [Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/) with PnP
 
 ## Requirements
 
@@ -87,11 +87,15 @@ Find below the minimal boilerplate for creating a new CF Worker script using Typ
 #### `example/index.ts` — CF Worker script
 
 ```ts
-export default {
-  async fetch(req, env, ctx) {
-    return new Response(`Hello world!`, { status: 200 });
-  },
-} as Required<Pick<ExportedHandler<Env>, "fetch">>;
+import { Hono } from "hono";
+
+const app = new Hono<Env>();
+
+app.get("/", ({ text }) => {
+  return text("Hello world!", 200);
+});
+
+export default app;
 ```
 
 #### `example/index.test.ts` — unit test powered by Miniflare
@@ -106,7 +110,7 @@ test("GET /", async () => {
   const body = await res.text();
 
   expect(res.status).toEqual(200);
-  expect(body).toEqual(`Hello world!`);
+  expect(body).toEqual("Hello world!");
 });
 ```
 

@@ -53,6 +53,7 @@
     "execa",
     "firestore",
     "globby",
+    "hono",
     "kriasoft",
     "miniflare",
     "pathinfo",

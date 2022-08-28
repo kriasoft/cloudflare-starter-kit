@@ -5,5 +5,5 @@
     "types": ["@cloudflare/workers-types", "jest"],
     "outDir": "../dist/api"
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "**/*.json"]
 }
