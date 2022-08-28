@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@mui/material": "^5.9.1",
     "firebase": "^9.9.1",
     "react": "^18.2.0",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
-    "@emotion/babel-plugin": "^11.9.2",
+    "@emotion/babel-plugin": "^11.10.2",
     "@types/jest": "^28.1.8",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
