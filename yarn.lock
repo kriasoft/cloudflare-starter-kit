@@ -3749,10 +3749,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sindresorhus/is@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "@sindresorhus/is@npm:4.6.0"
-  checksum: c4326c4f01370580cf5b1b799d5aabab6cb3b0f7f06aec316bec403796064f3b7c68ebd22361313557bf153346266e133f8dd16b3a95e07650f70843321548f3
+"@sindresorhus/is@npm:^5.2.0":
+  version: 5.3.0
+  resolution: "@sindresorhus/is@npm:5.3.0"
+  checksum: f43c7625f31104a4b4c28d12cc8567d25b1f0c6005e7767ffe903eab19df6f047476781cf09337138b07d27ee8858ec23ce07f4524648dcfa117b0f9815d570a
   languageName: node
   linkType: hard
 
@@ -6138,7 +6138,7 @@ __metadata:
     execa: "npm:^6.1.0"
     form-data: "npm:^4.0.0"
     globby: "npm:^13.1.2"
-    got: "npm:^12.1.0"
+    got: "npm:^12.3.1"
     husky: "npm:^8.0.1"
     jest: "npm:^29.0.1"
     jest-environment-miniflare: "npm:^2.7.1"
@@ -6421,10 +6421,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"form-data-encoder@npm:1.7.1":
-  version: 1.7.1
-  resolution: "form-data-encoder@npm:1.7.1"
-  checksum: 6507ed934ccc0e513a794cbb74725c0deb310bda1ffd15c5233168f599e105718953a322400eac996ff330a47bbd72ce06a635aabf761c08b07474076cb8c28b
+"form-data-encoder@npm:^2.0.1":
+  version: 2.1.0
+  resolution: "form-data-encoder@npm:2.1.0"
+  checksum: a3b5913db0de233c46ba0bed40823e1ba9226bd028b438933231d0e5f537164e004a415f52ea25cfef702eca26c95ac020bac92933926b2737816f92ac92303c
   languageName: node
   linkType: hard
 
@@ -6674,24 +6674,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"got@npm:^12.1.0":
-  version: 12.1.0
-  resolution: "got@npm:12.1.0"
+"got@npm:^12.3.1":
+  version: 12.3.1
+  resolution: "got@npm:12.3.1"
   dependencies:
-    "@sindresorhus/is": "npm:^4.6.0"
+    "@sindresorhus/is": "npm:^5.2.0"
     "@szmarczak/http-timer": "npm:^5.0.1"
     "@types/cacheable-request": "npm:^6.0.2"
     "@types/responselike": "npm:^1.0.0"
     cacheable-lookup: "npm:^6.0.4"
     cacheable-request: "npm:^7.0.2"
     decompress-response: "npm:^6.0.0"
-    form-data-encoder: "npm:1.7.1"
+    form-data-encoder: "npm:^2.0.1"
     get-stream: "npm:^6.0.1"
     http2-wrapper: "npm:^2.1.10"
     lowercase-keys: "npm:^3.0.0"
     p-cancelable: "npm:^3.0.0"
     responselike: "npm:^2.0.0"
-  checksum: a07b585c9babf9a49456b135925c86439f6e1ba98a201eb52528dbd7f1a31666e19a9f9a1e7ae888b65d812af9c30f5563dce9c3b8b3b30fa6c648c5b8fb3920
+  checksum: e551bbea3bc1885774b4959c1635d9d815c8b55927e171b5b170ba06eb9910284d74083cc13bf850b43c53f51abaaad2f3f4f19db0f90b165d86abdfefaf4342
   languageName: node
   linkType: hard
 
