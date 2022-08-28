@@ -6,13 +6,14 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "eslint.nodePath": ".yarn/sdks",
+  "eslint.runtime": "node",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "jest.jestCommandLine": "yarn node --experimental-vm-modules $(yarn bin jest)",
   "jestrunner.jestCommand": "yarn node --experimental-vm-modules $(yarn bin jest)",
   "jestrunner.enableYarnPnpSupport": true,
-  "jestrunner.yarnPnpCommand": "yarn-4.0.0-rc.14.cjs",
+  "jestrunner.yarnPnpCommand": "yarn-4.0.0-rc.15.cjs",
   "jestrunner.debugOptions": {
     "program": "yarn node $(yarn bin jest)",
     "env": {
@@ -27,8 +28,7 @@
     "**/.git": true,
     "**/.gitattributes": true,
     "**/.husky": true,
-    "**/.pnp.cjs": true,
-    "**/.pnp.loader.mjs": true,
+    "**/.pnp.*": true,
     "**/.prettierignore": true,
     "**/.yarn": true,
     "**/node_modules": true
@@ -44,6 +44,7 @@
     "browserslist",
     "cloudfunctions",
     "corejs",
+    "endregion",
     "entrypoint",
     "envars",
     "eslintcache",

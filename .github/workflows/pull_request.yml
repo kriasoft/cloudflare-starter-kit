@@ -1,4 +1,4 @@
-# GitHub Actions workflow for Pull Requests
+# GitHub Actions workflow
 # https://help.github.com/actions
 
 name: PR
