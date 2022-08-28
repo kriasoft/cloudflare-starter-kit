@@ -50,7 +50,7 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/) `v16.15.0` or newer, [Yarn](https://yarnpkg.com/) package manager
+- [Node.js](https://nodejs.org/) v18+ with [Corepack](https://nodejs.org/api/corepack.html) (`$ corepack enable`)
 - [VS Code](https://code.visualstudio.com/) editor with [recommended extensions](.vscode/extensions.json)
 
 ## Getting Started
@@ -72,7 +72,7 @@ Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) 
 
 ## Scripts
 
-- **`yarn start`** - Launches web application on [`http://localhost:3000/`](http://localhost:3000/)
+- **`yarn start`** - Launches web application on [`http://localhost:5173/`](http://localhost:5173/)
 - **`yarn lint`** — Validates the code using [ESLint](https://eslint.org/)
 - **`yarn tsc`** — Validates the code using [TypeScript](https://www.typescriptlang.org/) compiler
 - **`yarn test`** — Runs unit tests with [Jest](https://jestjs.io/), [Miniflare](https://miniflare.dev/), and [Supertest](https://github.com/visionmedia/supertest)

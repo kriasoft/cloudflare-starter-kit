@@ -24,10 +24,10 @@
     "@types/jest": "^28.1.8",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^1.3.2",
+    "@vitejs/plugin-react": "^2.0.1",
     "envars": "^0.4.0",
     "typescript": "^4.7.4",
-    "vite": "^2.9.14"
+    "vite": "^3.0.9"
   },
   "envars": {
     "cwd": "../env"
