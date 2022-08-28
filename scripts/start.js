@@ -4,8 +4,8 @@
 import envars from "envars";
 import { Miniflare } from "miniflare";
 import * as rollup from "rollup";
-import vite from "vite";
-import { $, argv, chalk } from "zx";
+import { createServer } from "vite";
+import { $, argv, cd, chalk } from "zx";
 
 process.env.TARGET = "api";
 const { default: apiConfig } = await import("../rollup.config.mjs");
@@ -20,6 +20,7 @@ const mf = new Miniflare({
 
 // Launch the API compiler in "watch" mode
 const api = await new Promise((resolve, reject) => {
+  cd("./api");
   let initialized = false;
   rollup.watch(apiConfig).on("event", (event) => {
     if (event.code === "END") {
@@ -30,6 +31,7 @@ const api = await new Promise((resolve, reject) => {
         mf.startServer()
           .then(async (server) => {
             await mf.startScheduler();
+            cd("..");
             resolve(server);
           })
           .catch(reject);
@@ -58,7 +60,7 @@ console.log(
 console.log("");
 
 // Launch the web application (front-end) server
-const app = await vite.createServer({
+const app = await createServer({
   root: "app",
   base: argv.base,
   logLevel: argv.logLevel ?? argv.l,

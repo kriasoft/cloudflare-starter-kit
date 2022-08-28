@@ -22,11 +22,19 @@ const defineVars = [
  * https://vitejs.dev/config/
  */
 export default defineConfig({
-  cacheDir: "../.cache/app/vite",
+  cacheDir: `../.cache/vite-${process.env.npm_package_name}`,
 
   build: {
     outDir: "../dist/app",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          firebase: ["firebase/app", "firebase/auth"],
+          react: ["react", "react-dom", "react-router-dom", "recoil"],
+        },
+      },
+    },
   },
 
   define: Object.fromEntries(
@@ -36,6 +44,7 @@ export default defineConfig({
   plugins: [
     // https://github.com/vitejs/vite/tree/main/packages/plugin-react
     react({
+      jsxRuntime: "classic",
       jsxImportSource: "@emotion/react",
       babel: {
         plugins: ["@emotion/babel-plugin"],
