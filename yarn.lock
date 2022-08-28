@@ -3674,9 +3674,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:^22.0.1":
-  version: 22.0.1
-  resolution: "@rollup/plugin-commonjs@npm:22.0.1"
+"@rollup/plugin-commonjs@npm:^22.0.2":
+  version: 22.0.2
+  resolution: "@rollup/plugin-commonjs@npm:22.0.2"
   dependencies:
     "@rollup/pluginutils": "npm:^3.1.0"
     commondir: "npm:^1.0.1"
@@ -3687,7 +3687,7 @@ __metadata:
     resolve: "npm:^1.17.0"
   peerDependencies:
     rollup: ^2.68.0
-  checksum: ed7ed41ec05a73a788f68a21b3078949cecba7606f1ad7859b80f87e74f2601baee7d14c7c1b2eee276cd370845215380f8905ed97fe1e7ef391bab504491604
+  checksum: 532072063075f64081f97910efb69dd551eb83b1b577ec9fe2911e71b4638ba1ca1e612fe65c8ef4d6246134d975f5950c6eca8eda72d196c0baa7713330ea6f
   languageName: node
   linkType: hard
 
@@ -3998,14 +3998,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: c0e9a6e94e1d37dd9ccb6be305f9a1500968624a58c93bc3cbffaebcebcb6774add768db664e74867d99185c7a66e00fb12df6185d4e46bde170159ef0990071
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.7.13":
+"@types/node@npm:^18.6.3, @types/node@npm:^18.7.13":
   version: 18.7.13
   resolution: "@types/node@npm:18.7.13"
   checksum: 094caad7b0a8c09cc2b58de0bc676f34e9e3e0299a050a3698db83f2d714b85606e1f69e7ee55b581cf50b912b6c2967552d90a99930d6d9f35f4b7e58d20f1a
@@ -6130,7 +6123,7 @@ __metadata:
     "@jest/globals": "npm:^29.0.1"
     "@jest/types": "npm:^29.0.1"
     "@rollup/plugin-babel": "npm:^5.3.1"
-    "@rollup/plugin-commonjs": "npm:^22.0.1"
+    "@rollup/plugin-commonjs": "npm:^22.0.2"
     "@rollup/plugin-json": "npm:^4.1.0"
     "@rollup/plugin-node-resolve": "npm:^13.3.0"
     "@types/babel__core": "npm:^7.1.19"
@@ -6163,12 +6156,12 @@ __metadata:
     minimist: "npm:^1.2.6"
     prettier: "npm:^2.7.1"
     pretty-bytes: "npm:^6.0.0"
-    rollup: "npm:^2.77.0"
+    rollup: "npm:^2.78.1"
     typescript: "npm:^4.7.4"
     vite: "npm:^2.9.14"
     whatwg-fetch: "npm:^3.6.2"
     wrangler: "npm:^2.0.27"
-    zx: "npm:^7.0.7"
+    zx: "npm:^7.0.8"
   languageName: unknown
   linkType: soft
 
@@ -8539,14 +8532,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^3.2.6":
-  version: 3.2.6
-  resolution: "node-fetch@npm:3.2.6"
+"node-fetch@npm:3.2.8":
+  version: 3.2.8
+  resolution: "node-fetch@npm:3.2.8"
   dependencies:
     data-uri-to-buffer: "npm:^4.0.0"
     fetch-blob: "npm:^3.1.4"
     formdata-polyfill: "npm:^4.0.10"
-  checksum: 2d691cb9e9da1e14d2a7ab69e8d8bacc1fe3497af2f1da19e6423bd32218335cb3428cd51a105e4f63e113ba4d0d3de1748d95969ec67743e2cd2797f9024934
+  checksum: 65c579288e34da90f867acc024cf65fae50de31c877745ba0deb95296a9d526467365814b5303482d10fd2cc43c8c756d9cbf2d3ad153925a0dd90a567457f0b
   languageName: node
   linkType: hard
 
@@ -9579,9 +9572,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.77.0":
-  version: 2.77.0
-  resolution: "rollup@npm:2.77.0"
+"rollup@npm:^2.78.1":
+  version: 2.78.1
+  resolution: "rollup@npm:2.78.1"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -9589,7 +9582,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 26d3073a8f58a1da6fcb02142faccef7e8c1711a02cc7e6d0940b9000c4963b5ac35eeb252ebd4033d048305e90679357dd622d6a3c55de378386c825bb053a5
+  checksum: 4f708e7e81585cd37d635930b9c5d6d4417320035ab8401a8dc59f179c3b081bc7befea403a39969615e9231cbece627e95136b0118e403791b2eac6d2577e09
   languageName: node
   linkType: hard
 
@@ -10730,25 +10723,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zx@npm:^7.0.7":
-  version: 7.0.7
-  resolution: "zx@npm:7.0.7"
+"zx@npm:^7.0.8":
+  version: 7.0.8
+  resolution: "zx@npm:7.0.8"
   dependencies:
     "@types/fs-extra": "npm:^9.0.13"
     "@types/minimist": "npm:^1.2.2"
-    "@types/node": "npm:^17.0"
+    "@types/node": "npm:^18.6.3"
     "@types/ps-tree": "npm:^1.1.2"
     "@types/which": "npm:^2.0.1"
     chalk: "npm:^5.0.1"
     fs-extra: "npm:^10.1.0"
     globby: "npm:^13.1.2"
     minimist: "npm:^1.2.6"
-    node-fetch: "npm:^3.2.6"
+    node-fetch: "npm:3.2.8"
     ps-tree: "npm:^1.2.0"
     which: "npm:^2.0.2"
     yaml: "npm:^2.1.1"
   bin:
     zx: build/cli.js
-  checksum: 400009f1075082a278e66949a48c73fc3d0215a81824f7f28b34847bb10c680a7e859e6824f71bd150672f27cabd7b25b923d3b81244be6ecf77686987fd81b4
+  checksum: fc5fd0057f6c11949a74359a267648d1e4389b1eb409deb7b9b00d3ae9cea87f4eab6e53efc15dc587508223f85e53e792141572388aecb9a792de46d360b997
   languageName: node
   linkType: hard
