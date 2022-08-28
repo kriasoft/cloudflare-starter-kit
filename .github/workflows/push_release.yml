@@ -27,12 +27,12 @@ jobs:
       # Build
       - run: yarn workspace app build
       - run: yarn workspace api build
-      - run: yarn workspace site build
+      - run: yarn workspace edge build
 
       # Deploy
       # - run: yarn workspace api deploy --env=prod
       #   env:
       #     CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      # - run: yarn workspace site deploy --env=prod
+      # - run: yarn workspace edge deploy --env=prod
       #   env:
       #     CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -33,7 +33,7 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 `├──`[`env`](./env) — Settings for `local` (dev), `test` (staging/QA), and `prod` (production) environments<br>
 `├──`[`api`](./api) — Cloudflare Worker script for handling API requests<br>
 `├──`[`app`](./app) — Web application front-end powered by [Vite](https://vitejs.dev/) and [React.js](https://reactjs.org/)<br>
-`├──`[`site`](./site) — [Cloudflare Workers](https://workers.cloudflare.com/) script for serving static websites (reverse proxy)<br>
+`├──`[`edge`](./edge) — [Cloudflare Workers](https://workers.cloudflare.com/) script for serving static websites (reverse proxy)<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
 `├──`[`package.json`](./project.json) — The list of [NPM](https://www.npmjs.com/) dependencies and [Yarn](https://yarnpkg.com/) workspaces<br>
 `├──`[`rollup.config.mjs`](./rollup.config.mjs) — [Rollup](https://rollupjs.org/) configuration for compiling and bundling [CF Workers](https://workers.cloudflare.com/)<br>
@@ -66,7 +66,7 @@ $ yarn start
 $ yarn test
 ```
 
-Find the worker scripts inside of the [`./site`](./site/) and [`./api`](./api/) folders.
+Find the worker scripts inside of the [`./edge`](./edge/) and [`./api`](./api/) folders.
 
 **IMPORTANT**: Ensure that VSCode is using the [workspace version of TypeScript](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-newer-typescript-versions).
 
@@ -128,8 +128,8 @@ type = "ESModule"
 globs = ["**/*.js"]
 ```
 
-Plus [`package.json`](./site/package.json), [`tsconfig.json`](./site/tsconfig.json),
-and [`global.d.ts`](./site/global.d.ts) files configuring TypeScript for the workspace.
+Plus [`package.json`](./edge/package.json), [`tsconfig.json`](./edge/tsconfig.json),
+and [`global.d.ts`](./edge/global.d.ts) files configuring TypeScript for the workspace.
 
 Note that `$APP_HOSTNAME` and `$CLOUDFLARE_ACCOUNT_ID` placeholders in the
 example above will be automatically replaced with values from [`*.env`](./env/)
@@ -156,7 +156,7 @@ You can also deploy packages (workspaces) individually, for example:
 
 ```bash
 $ yarn api:deploy --env=prod
-$ yarn site:deploy --env=prod
+$ yarn edge:deploy --env=prod
 ```
 
 <p align="center"><img src="https://files.tarkus.me/cloudflare-workers-deploy.svg" /></p>
@@ -165,7 +165,7 @@ $ yarn site:deploy --env=prod
 
 ```
 $ yarn api:cf tail [--env #0]
-$ yarn site:cf tail [--env #0]
+$ yarn edge:cf tail [--env #0]
 ```
 
 ## How to Update

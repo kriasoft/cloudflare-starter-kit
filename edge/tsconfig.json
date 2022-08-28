@@ -3,7 +3,7 @@
   "compilerOptions": {
     "lib": ["ESNext"],
     "types": ["@cloudflare/workers-types", "jest"],
-    "outDir": "../dist/site"
+    "outDir": "../dist/edge"
   },
   "include": ["**/*.ts"]
 }
