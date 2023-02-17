@@ -1,5 +1,8 @@
+/* SPDX-FileCopyrightText: 2020-present Kriasoft */
+/* SPDX-License-Identifier: MIT */
+
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { useAuth, useCurrentUser } from "../state/firebase.js";
+import { useAuth, useCurrentUser } from "../../state/firebase.js";
 
 export function AppToolbar(): JSX.Element {
   const me = useCurrentUser();

@@ -1,11 +1,14 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-declare const APP_HOSTNAME: string;
-declare const GOOGLE_CLOUD_PROJECT: string;
-declare const FIREBASE_APP_ID: string;
-declare const FIREBASE_API_KEY: string;
-declare const GA_MEASUREMENT_ID: string;
+interface ImportMetaEnv {
+  readonly VITE_APP_HOSTNAME: string;
+  readonly VITE_GOOGLE_CLOUD_PROJECT: string;
+  readonly VITE_FIREBASE_APP_ID: string;
+  readonly VITE_FIREBASE_API_KEY: string;
+  readonly VITE_FIREBASE_AUTH_DOMAIN: string;
+  readonly VITE_GA_MEASUREMENT_ID: string;
+}
 
 interface Window {
   dataLayer: unknown[];
