@@ -19,7 +19,7 @@
     "recoil": "^0.7.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.13",
+    "@babel/core": "^7.20.12",
     "@emotion/babel-plugin": "^11.10.2",
     "@types/jest": "^28.1.8",
     "@types/react": "^18.0.17",
