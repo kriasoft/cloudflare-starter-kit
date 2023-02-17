@@ -5,7 +5,7 @@ import { CircularProgress, Container, Typography } from "@mui/material";
 import * as React from "react";
 import { usePerson } from "../state/example.js";
 
-export function Home(): JSX.Element {
+export default function Home(): JSX.Element {
   return (
     <Container sx={{ py: 2 }} maxWidth="sm">
       <Typography sx={{ mb: 2 }} variant="h5">

@@ -8,21 +8,22 @@ import { defineConfig } from "vite";
 // Load environment variables for the target environment
 envars.config();
 
-// The list of environment variables required by the app
-const defineVars = [
+// Tells Vite which environment variables need to be injected into the app
+// https://vitejs.dev/guide/env-and-mode.html#env-variables-and-modes
+[
   "APP_HOSTNAME",
   "GOOGLE_CLOUD_PROJECT",
   "FIREBASE_APP_ID",
   "FIREBASE_API_KEY",
   "GA_MEASUREMENT_ID",
-];
+].forEach((key) => (process.env[`VITE_${key}`] = process.env[key]));
 
 /**
  * Vite configuration
  * https://vitejs.dev/config/
  */
 export default defineConfig({
-  cacheDir: `../.cache/vite-${process.env.npm_package_name}`,
+  cacheDir: `../.cache/vite-app`,
 
   build: {
     outDir: "../dist/app",
@@ -37,10 +38,6 @@ export default defineConfig({
     },
   },
 
-  define: Object.fromEntries(
-    defineVars.map((key) => [key, JSON.stringify(process.env[key])])
-  ),
-
   plugins: [
     // https://github.com/vitejs/vite/tree/main/packages/plugin-react
     react({
@@ -51,4 +48,13 @@ export default defineConfig({
       },
     }),
   ],
+
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://swapi.dev/",
+        changeOrigin: true,
+      },
+    },
+  },
 });

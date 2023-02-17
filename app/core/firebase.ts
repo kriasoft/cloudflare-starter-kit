@@ -11,10 +11,10 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 export const app = initializeApp({
-  projectId: GOOGLE_CLOUD_PROJECT,
-  appId: FIREBASE_APP_ID,
-  apiKey: FIREBASE_API_KEY,
-  authDomain: `${GOOGLE_CLOUD_PROJECT}.web.app`,
+  projectId: import.meta.env.VITE_GOOGLE_CLOUD_PROJECT,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: `${import.meta.env.VITE_GOOGLE_CLOUD_PROJECT}.web.app`,
 });
 
 export const auth = getAuth(app);

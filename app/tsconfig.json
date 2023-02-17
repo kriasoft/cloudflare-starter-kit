@@ -3,8 +3,7 @@
   "compilerOptions": {
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
-    // https://github.com/emotion-js/emotion/issues/2742
-    // "jsxImportSource": "@emotion/react",
+    "jsxImportSource": "@emotion/react",
     "types": ["vite/client", "jest"],
     "outDir": "../dist/app"
   },
