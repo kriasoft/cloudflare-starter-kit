@@ -2,15 +2,15 @@
 /* SPDX-License-Identifier: MIT */
 
 import { Hono } from "hono";
-import { serveStatic } from "hono/serve-static";
+import { serveStatic } from "hono/cloudflare-workers";
 import assetManifest from "__STATIC_CONTENT_MANIFEST";
 
 const app = new Hono<Env>();
 
-app.get("/echo", ({ req, json }) => {
+app.get("/echo", ({ json, req }) => {
   return json({
     headers: Object.fromEntries(req.headers.entries()),
-    cf: req.cf,
+    cf: req.raw.cf,
   });
 });
 

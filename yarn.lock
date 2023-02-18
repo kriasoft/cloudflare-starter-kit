@@ -1406,17 +1406,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/workers-types@npm:^3.19.0":
-  version: 3.19.0
-  resolution: "@cloudflare/workers-types@npm:3.19.0"
-  checksum: 2bbc4661ffe604e7074e40f75a86f84506a1dfad54cf99bdf6341982e4575cd5223dd97eab1e4db002038861fad15d1aa13b7f216572b92666d24cb90f466c14
-  languageName: node
-  linkType: hard
-
 "@cloudflare/workers-types@npm:^4.20221111.1":
   version: 4.20230214.0
   resolution: "@cloudflare/workers-types@npm:4.20230214.0"
   checksum: 24f3a84964096269a77278fb2389614c6c3ae6a4bc5b6e2e9254b14a170035282b3aef99223a3d0de240dda0c917533712400d4906a5a8345c4ec41f69a96d1b
+  languageName: node
+  linkType: hard
+
+"@cloudflare/workers-types@npm:^4.20230215.0":
+  version: 4.20230215.0
+  resolution: "@cloudflare/workers-types@npm:4.20230215.0"
+  checksum: ad1c6bdc5492f99544861eabee7f632dfb1f23de1b4d18d5077269310c6968023d837c6ec79be6c40e4d719b20410b48318cbd75ea308280443d3a93a661caba
   languageName: node
   linkType: hard
 
@@ -3618,10 +3618,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0, @types/node@npm:^18.13.0, @types/node@npm:^18.7.20":
+"@types/node@npm:*, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0, @types/node@npm:^18.7.20":
   version: 18.13.0
   resolution: "@types/node@npm:18.13.0"
   checksum: 591b7b9a97dbeaa155c3fe1a00e22fc13241781bda02f4e96935811723e7719fe18ed003301551cfa3273488cc7cf2f99146b752abc9b60aaab57bcbc67da830
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.14.0":
+  version: 18.14.0
+  resolution: "@types/node@npm:18.14.0"
+  checksum: d17dff07c712379d67af7750f1586b4840ade31ab814d04987aa25850f1d4ef29b63b9ed03a7a9dccee8c86106ca75ae3b6f8cdd17be3ef3f693e700b1ea437b
   languageName: node
   linkType: hard
 
@@ -4015,10 +4022,10 @@ __metadata:
   resolution: "api@workspace:api"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.3.0"
-    "@cloudflare/workers-types": "npm:^3.19.0"
+    "@cloudflare/workers-types": "npm:^4.20230215.0"
     "@jest/globals": "npm:^29.4.3"
     "@types/jest": "npm:^29.4.0"
-    hono: "npm:^2.7.8"
+    hono: "npm:^3.0.0"
     typescript: "npm:^4.9.5"
     web-auth-library: "npm:^0.4.1"
   languageName: unknown
@@ -4044,7 +4051,7 @@ __metadata:
     react-router-dom: "npm:^6.8.1"
     recoil: "npm:^0.7.6"
     typescript: "npm:^4.9.5"
-    vite: "npm:^4.1.1"
+    vite: "npm:^4.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4826,10 +4833,10 @@ __metadata:
   resolution: "edge@workspace:edge"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.3.0"
-    "@cloudflare/workers-types": "npm:^3.19.0"
+    "@cloudflare/workers-types": "npm:^4.20230215.0"
     "@jest/globals": "npm:^29.4.3"
     "@types/jest": "npm:^29.4.0"
-    hono: "npm:^2.7.8"
+    hono: "npm:^3.0.0"
     typescript: "npm:^4.9.5"
   languageName: unknown
   linkType: soft
@@ -5816,10 +5823,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hono@npm:^2.7.8":
-  version: 2.7.8
-  resolution: "hono@npm:2.7.8"
-  checksum: 8a512c8b1fa5cc2636ac5ee6151ad053f25a7f579bff3af3061025d315aaab152bedf67b68f78a943bc1c87346ab35d726f65906e8769d527b195ba810578f6e
+"hono@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "hono@npm:3.0.0"
+  checksum: 48e4d18119724d4cbafb6a6d37f743a00c224c98e127ee2227c3e9d740693917124a0561fd6eabfab2556603c407287f0b75003df5d6d0af10f5645a7a53f1a7
   languageName: node
   linkType: hard
 
@@ -8241,7 +8248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.10.0, rollup@npm:^3.15.0":
+"rollup@npm:^3.10.0":
   version: 3.15.0
   resolution: "rollup@npm:3.15.0"
   dependencies:
@@ -8255,6 +8262,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup@npm:^3.17.0":
+  version: 3.17.0
+  resolution: "rollup@npm:3.17.0"
+  dependencies:
+    fsevents: "npm:~2.3.2"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: bf2598165ef517c047501a46c215b84194e94bb9fe05f8366140528a9286c8ef6036af7871630afecc000f9ba2a09438cd0d2e5d5a80214647853eda5ca11297
+  languageName: node
+  linkType: hard
+
 "root@workspace:.":
   version: 0.0.0-use.local
   resolution: "root@workspace:."
@@ -8265,7 +8286,7 @@ __metadata:
     "@babel/plugin-proposal-object-rest-spread": "npm:^7.20.7"
     "@babel/preset-env": "npm:^7.20.2"
     "@babel/preset-typescript": "npm:^7.18.6"
-    "@cloudflare/workers-types": "npm:^3.19.0"
+    "@cloudflare/workers-types": "npm:^4.20230215.0"
     "@emotion/babel-plugin": "npm:^11.10.6"
     "@emotion/eslint-plugin": "npm:^11.10.0"
     "@jest/globals": "npm:^29.4.3"
@@ -8278,7 +8299,7 @@ __metadata:
     "@types/babel__preset-env": "npm:^7.9.2"
     "@types/eslint": "npm:^8.21.1"
     "@types/jest": "npm:^29.4.0"
-    "@types/node": "npm:^18.13.0"
+    "@types/node": "npm:^18.14.0"
     "@types/prettier": "npm:^2.7.2"
     "@typescript-eslint/eslint-plugin": "npm:^5.52.0"
     "@typescript-eslint/parser": "npm:^5.52.0"
@@ -8295,9 +8316,9 @@ __metadata:
     miniflare: "npm:^2.12.0"
     prettier: "npm:^2.8.4"
     pretty-bytes: "npm:^6.1.0"
-    rollup: "npm:^3.15.0"
+    rollup: "npm:^3.17.0"
     typescript: "npm:^4.9.5"
-    vite: "npm:^4.1.1"
+    vite: "npm:^4.1.2"
     whatwg-fetch: "npm:^3.6.2"
     wrangler: "npm:^2.10.0"
     zx: "npm:^7.1.1"
@@ -9041,9 +9062,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "vite@npm:4.1.1"
+"vite@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "vite@npm:4.1.2"
   dependencies:
     esbuild: "npm:^0.16.14"
     fsevents: "npm:~2.3.2"
@@ -9075,7 +9096,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 1214e901a0836cfad0b20abe3ba03684c5c6d1a5d486e7ddd55e56e2c786677cecd7c1822b97540a001867164a9e38e52aa5c14480cdc50afd2561ed4bc2f89b
+  checksum: a1a4cd24b4d8750fba06aac7b12ab84304d3563b6fe3cfb5fc0b5f6276cc0fd251292a445f8d58d79bd39c0d8343d8c4b7fa92c4f8a79fb48869f99e62d365c4
   languageName: node
   linkType: hard
 
