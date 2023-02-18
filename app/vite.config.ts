@@ -2,11 +2,11 @@
 /* SPDX-License-Identifier: MIT */
 
 import react from "@vitejs/plugin-react";
-import envars from "envars";
+import * as dotenv from "dotenv";
 import { defineConfig } from "vite";
 
-// Load environment variables for the target environment
-envars.config();
+// Load environment variables from .env file
+dotenv.config({ path: "../.env" });
 
 // Tells Vite which environment variables need to be injected into the app
 // https://vitejs.dev/guide/env-and-mode.html#env-variables-and-modes
@@ -26,8 +26,6 @@ export default defineConfig({
   cacheDir: `../.cache/vite-app`,
 
   build: {
-    outDir: "../dist/app",
-    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: {
