@@ -1,12 +1,9 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-import {
-  getAssetFromKV,
-  serveSinglePageApp,
-} from "@cloudflare/kv-asset-handler";
 import { Hono } from "hono";
-import manifest from "__STATIC_CONTENT_MANIFEST";
+import { serveStatic } from "hono/serve-static";
+import assetManifest from "__STATIC_CONTENT_MANIFEST";
 
 const app = new Hono<Env>();
 
@@ -17,22 +14,13 @@ app.get("/echo", ({ req, json }) => {
   });
 });
 
-// Serve web application assets bundled into
-// the worker script from the `dist/app` folder
-app.get("*", async ({ req, env, executionCtx }) => {
-  return await getAssetFromKV(
-    {
-      request: req,
-      waitUntil(promise) {
-        return executionCtx.waitUntil(promise);
-      },
-    },
-    {
-      ASSET_NAMESPACE: env.__STATIC_CONTENT,
-      ASSET_MANIFEST: JSON.parse(manifest),
-      mapRequestToAsset: serveSinglePageApp,
-    }
-  );
+// Rewrite HTTP requests starting with "/api/"
+// to the Star Wars API as an example
+app.use("/api/*", ({ req }) => {
+  const { pathname, search } = new URL(req.url);
+  return fetch(`https://swapi.dev${pathname}${search}`, req);
 });
+
+app.use("*", serveStatic({ manifest: assetManifest }));
 
 export default app;
