@@ -1,16 +1,17 @@
 # Cloudflare Workers configuration
 # https://developers.cloudflare.com/workers/wrangler/configuration/
 
-name = "example"
+name = "chainfuse-auth-example"
 main = "index.js"
 
 # https://developers.cloudflare.com/workers/platform/compatibility-dates/
 compatibility_date = "2022-11-30"
 
-account_id = "xxxxx"
+account_id = "e9b82b39aa91575a2643529d24a1bf02"
 
 routes = [
-  { pattern = "example.com/*", zone_id = "xxxxx" }
+  { pattern = "auth-example.chainfuse.com/*", zone_id = "e1106a13cd93f45de816417446837e9e" },
+  { pattern = "auth-example-a.chainfuse.com/*", zone_id = "e1106a13cd93f45de816417446837e9e" }
 ]
 
 rules = [
@@ -19,9 +20,10 @@ rules = [
 ]
 
 [vars]
-APP_ENV = "production"
-APP_NAME = "example"
-APP_HOSTNAME = "example.com"
+APP_ENV = "prod"
+APP_NAME = "chainfuse"
+APP_HOSTNAME = "auth-example.chainfuse.com"
+FIREBASE_API_KEY = "AIzaSyApwYy2O33hvwo2G3OSt1Vi0TTjvW45UVU"
 
 # [secrets]
 # GOOGLE_CLOUD_CREDENTIALS
@@ -30,4 +32,4 @@ APP_HOSTNAME = "example.com"
 bucket = "../app/dist"
 
 [env.test]
-name = "example-test"
+name = "chainfuse-auth-example-test"

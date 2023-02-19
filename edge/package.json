@@ -7,10 +7,12 @@
     "build": "vite build",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "deploy": "node -r dotenv/config $(yarn bin wrangler) publish --no-bundle dist/index.js"
+    "deploy": "node -r dotenv/config $(yarn bin wrangler) publish --no-bundle dist/index.js",
+    "cf": "node -r dotenv/config $(yarn bin wrangler)"
   },
   "dependencies": {
-    "hono": "^3.0.0"
+    "hono": "^3.0.0",
+    "jose": "^4.12.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230215.0",

@@ -3011,6 +3011,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^4.20230215.0"
     dotenv: "npm:^16.0.3"
     hono: "npm:^3.0.0"
+    jose: "npm:^4.12.0"
     toml: "npm:^3.0.0"
     typescript: "npm:^4.9.5"
     vite: "npm:^4.1.2"
@@ -4149,6 +4150,13 @@ __metadata:
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
   checksum: b37fe0a7983c0c151c7b31ca716405aaea190ac9cd6ef3f79355f4afb043ed4d3182a6addd73b20df7a0b229269737ad0daf64116821a048bfbe6b8fb7eb842c
+  languageName: node
+  linkType: hard
+
+"jose@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "jose@npm:4.12.0"
+  checksum: 1f8cf50dc33ebc09d5247ded5a06d8f627fd10c94f65c9877d35d5d67be02dd93006f7dfa92c4f54db6f2bdaa0c47f1b51022046f66bdf07ace3940bcd91a1fb
   languageName: node
   linkType: hard
 

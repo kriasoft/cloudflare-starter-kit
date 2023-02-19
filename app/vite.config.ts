@@ -15,6 +15,7 @@ dotenv.config({ path: "../.env" });
   "GOOGLE_CLOUD_PROJECT",
   "FIREBASE_APP_ID",
   "FIREBASE_API_KEY",
+  "FIREBASE_AUTH_DOMAIN",
   "GA_MEASUREMENT_ID",
 ].forEach((key) => (process.env[`VITE_${key}`] = process.env[key]));
 
