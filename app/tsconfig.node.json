@@ -2,7 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "moduleResolution": "Node",
-    "outDir": "../dist/app"
+    "outDir": "../.cache/typescript-app"
   },
   "include": ["vite.config.ts"]
 }

@@ -4,10 +4,10 @@
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "types": ["vite/client", "jest"],
-    "outDir": "../dist/app"
+    "types": ["vite/client"],
+    "outDir": "./dist"
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
-  "exclude": ["vite.config.ts"],
+  "exclude": ["dist/**/*", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

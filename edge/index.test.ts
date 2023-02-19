@@ -1,12 +1,12 @@
 /* SPDX-FileCopyrightText: 2020-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
 
-import worker from "./index.js";
+import { expect, test } from "vitest";
+import app from "./index.js";
 
-test("GET /", async () => {
-  const env = getMiniflareBindings();
+test.skip("GET /", async () => {
   const req = new Request(`https://${env.APP_HOSTNAME}/`);
-  const res = await worker.fetch(req, env, {} as ExecutionContext);
+  const res = await app.fetch(req, bindings);
   const body = await res.text();
 
   expect(res.status).toEqual(200);

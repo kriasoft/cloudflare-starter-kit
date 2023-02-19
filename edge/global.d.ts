@@ -10,11 +10,13 @@ declare type Bindings = {
   APP_ENV: "local" | "test" | "prod";
   APP_NAME: string;
   APP_HOSTNAME: string;
-  __STATIC_CONTENT: Record<string, string>;
+  __STATIC_CONTENT: KVNamespace;
 };
 
 declare type Env = {
   Bindings: Bindings;
 };
+
+declare const bindings: Bindings;
 
 declare function getMiniflareBindings<T = Bindings>(): T;

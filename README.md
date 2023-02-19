@@ -13,7 +13,7 @@ Project template for [scaffolding](https://github.com/kriasoft/cloudflare-starte
 
 - Supports [multiple CF Workers](https://miniflare.dev/core/mount) within the same (mono)repo; using ES modules syntax
 - Pre-configured with [TypeScript](https://typescriptlang.org/), [Babel](https://babeljs.io/),
-  [Rollup](https://rollupjs.org/), [ESLint](https://eslint.org/), [Jest](https://jestjs.io/),
+  [Rollup](https://rollupjs.org/), [ESLint](https://eslint.org/), [Vitest](https://vitest.dev/),
   [Prettier](https://prettier.io/), [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/),
   [Miniflare](https://miniflare.dev/)
 - Pre-configured with `local`, `test` (staging/QA), and `prod` (production) environments
@@ -30,13 +30,11 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 
 `├──`[`.github/workflows`](./.github/workflows/) — CI/CD workflows powered by [GitHub Actions](https://github.com/features/actions)<br>
 `├──`[`.vscode`](.vscode) — [VSCode](https://code.visualstudio.com/) settings including code snippets, recommended extensions etc.<br>
-`├──`[`env`](./env) — Settings for `local` (dev), `test` (staging/QA), and `prod` (production) environments<br>
 `├──`[`api`](./api) — Cloudflare Worker script for handling API requests<br>
 `├──`[`app`](./app) — Web application front-end powered by [Vite](https://vitejs.dev/) and [React.js](https://reactjs.org/)<br>
 `├──`[`edge`](./edge) — [Cloudflare Workers](https://workers.cloudflare.com/) script for serving static websites (reverse proxy)<br>
 `├──`[`scripts`](./scripts) — Automation scripts, such as `yarn deploy`<br>
 `├──`[`package.json`](./project.json) — The list of [NPM](https://www.npmjs.com/) dependencies and [Yarn](https://yarnpkg.com/) workspaces<br>
-`├──`[`rollup.config.mjs`](./rollup.config.mjs) — [Rollup](https://rollupjs.org/) configuration for compiling and bundling [CF Workers](https://workers.cloudflare.com/)<br>
 `└──`[`tsconfig.base.json`](./tsconfig.base.json) — [TypeScript](https://www.typescriptlang.org/) configuration shared across packages/workspaces<br>
 
 ## Tech Stack
@@ -46,7 +44,7 @@ Be sure to join our [Discord channel](https://discord.gg/QEd934tZvR) for assista
 - [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org/),
   [Miniflare](https://miniflare.dev/), [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/),
   [ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
-  [Jest](https://jestjs.io/), [Yarn](https://yarnpkg.com/) with PnP
+  [Vitest](https://vitest.dev/), [Yarn](https://yarnpkg.com/) with PnP
 
 ## Requirements
 
@@ -75,10 +73,9 @@ Find the worker scripts inside of the [`./edge`](./edge/) and [`./api`](./api/) 
 - **`yarn start`** - Launches web application on [`http://localhost:5173/`](http://localhost:5173/)
 - **`yarn lint`** — Validates the code using [ESLint](https://eslint.org/)
 - **`yarn tsc`** — Validates the code using [TypeScript](https://www.typescriptlang.org/) compiler
-- **`yarn test`** — Runs unit tests with [Jest](https://jestjs.io/), [Miniflare](https://miniflare.dev/), and [Supertest](https://github.com/visionmedia/supertest)
+- **`yarn test`** — Runs unit tests with [Vitest](https://vitest.dev/), [Miniflare](https://miniflare.dev/), and [Supertest](https://github.com/visionmedia/supertest)
 - **`yarn build`** — Compiles and bundles worker scripts into the `./dist` folder(s)
 - **`yarn deploy`** — Deploys the app to [Cloudflare Workers](https://developers.cloudflare.com/workers/) / [GCF](https://cloud.google.com/functions)
-- **`yarn cf <workspace>`** — [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/get-started/) wrapper with support of [`*.env`](./env) files
 
 ## How to Create a CF Worker
 
@@ -101,16 +98,18 @@ export default app;
 #### `example/index.test.ts` — unit test powered by Miniflare
 
 ```ts
-import worker from "./index.js";
+import { expect, test } from "vitest";
+import app from "./index.js";
 
 test("GET /", async () => {
-  const env = getMiniflareBindings();
   const req = new Request(`https://${env.APP_HOSTNAME}/`);
-  const res = await worker.fetch(req, env, {});
+  const res = await app.fetch(req, bindings);
   const body = await res.text();
 
-  expect(res.status).toEqual(200);
-  expect(body).toEqual("Hello world!");
+  expect({ status: res.status, body }).toEqual({
+    status: 200,
+    body: "Hello world!",
+  });
 });
 ```
 
@@ -168,8 +167,8 @@ $ yarn edge:deploy --env=prod
 ## How to View Logs
 
 ```
-$ yarn api:cf tail [--env #0]
-$ yarn edge:cf tail [--env #0]
+$ yarn workspace api wrangler tail [--env #0]
+$ yarn workspace api wrangler tail [--env #0]
 ```
 
 ## How to Update

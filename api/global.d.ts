@@ -6,11 +6,12 @@ declare type Bindings = {
   APP_NAME: string;
   APP_HOSTNAME: string;
   GOOGLE_CLOUD_CREDENTIALS: string;
-  __STATIC_CONTENT: Record<string, string>;
 };
 
 declare type Env = {
   Bindings: Bindings;
 };
+
+declare const bindings: Bindings;
 
 declare function getMiniflareBindings<T = Bindings>(): T;

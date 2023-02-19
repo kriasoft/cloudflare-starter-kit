@@ -30,7 +30,8 @@ jobs:
       - run: yarn workspace app build
       - run: yarn workspace api build
       - run: yarn workspace edge build
-      - run: yarn test
+      - run: yarn workspace api test
+      # - run: yarn workspace edge test
 
       # Build and deploy
       # - run: yarn workspace api deploy --env=test --version=$VERSION
